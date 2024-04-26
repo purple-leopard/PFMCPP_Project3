@@ -196,53 +196,53 @@ Part 1b - Step 2: Assignment
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
 
-Thing 1)
+Thing 1) Dog
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) weight
+    2) height
+    3) age in years
+    4) fur colour
+    5) breed
 3 things it can do:
-    1)
-    2)
-    3)
+    1) bark at postman
+    2) fetch ball
+    3) sit
 
-Thing 2)
+Thing 2) Laptop
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) brand
+    2) model
+    3) operating system version
+    4) memory capacity
+    5) number of processor cores
 3 things it can do:
-    1)
-    2)
-    3)
+    1) boot up
+    2) launch program
+    3) invoke compiler
 
-Thing 3)
+Thing 3) Weather Satellite
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of solar panels
+    2) radiation hardening type
+    3) attitude
+    4) orbital velocity
+    5) antenna center frequency
 3 things it can do:
-    1)
-    2)
-    3)
+    1) switch imaging modality 
+    2) transmit data to ground station
+    3) monitor battery charge level
 
-Thing 4)
+Thing 4) Film Camera
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) viewfinder type
+    2) lens mount type
+    3) maximum shutter speed
+    4) weight
+    5) brand
 3 things it can do:
-    1)
-    2)
-    3)
+    1) release shutter
+    2) advance film
+    3) engage lightmeter
 */
 
 /*
