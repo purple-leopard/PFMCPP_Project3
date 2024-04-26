@@ -198,11 +198,11 @@ Part 1b - Step 2: Assignment
 
 Thing 1) Dog
 5 properties:
-    1) weight
-    2) height
-    3) age in years
-    4) fur colour
-    5) breed
+    1) weight (float)
+    2) height (float)
+    3) age in years (int)
+    4) fur colour (std::string)
+    5) breed (std::string)
 3 things it can do:
     1) bark at postman
     2) fetch ball
@@ -210,11 +210,11 @@ Thing 1) Dog
 
 Thing 2) Laptop
 5 properties:
-    1) brand
-    2) model
-    3) operating system version
-    4) memory capacity
-    5) number of processor cores
+    1) brand (std::string)
+    2) model (std::string)
+    3) operating system version (std::string)
+    4) memory capacity (int) // if measured in GB
+    5) number of processor cores (int)
 3 things it can do:
     1) boot up
     2) launch program
@@ -222,11 +222,11 @@ Thing 2) Laptop
 
 Thing 3) Weather Satellite
 5 properties:
-    1) number of solar panels
-    2) radiation hardening type
-    3) attitude
-    4) orbital velocity
-    5) antenna center frequency
+    1) number of solar panels (int)
+    2) radiation hardening type (std::string)
+    3) attitude (double)
+    4) orbital velocity (double)
+    5) antenna center frequency (float)
 3 things it can do:
     1) switch imaging modality 
     2) transmit data to ground station
@@ -234,11 +234,11 @@ Thing 3) Weather Satellite
 
 Thing 4) Film Camera
 5 properties:
-    1) viewfinder type
-    2) lens mount type
-    3) maximum shutter speed
-    4) weight
-    5) brand
+    1) viewfinder type (std::string)
+    2) lens mount type (std::string)
+    3) maximum shutter speed (float)
+    4) weight (float)
+    5) brand (std::string)
 3 things it can do:
     1) release shutter
     2) advance film
