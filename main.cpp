@@ -337,17 +337,17 @@ Define an object that is made of 5 sub-objects.
     These 5 sub-objects will not be defined using Primitives, but instead will be their own UDTs 
     you'll define these 5 sub-objects in Part 1d.
 
-Thing 10)
+Thing 10) Smart Home System
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Security System
+    2) Lighting Control
+    3) HVAC System
+    4) Entertainment System
+    5) Smart Appliances
 3 things it can do:
-    1)
-    2)
-    3)
+    1) monitor home temperature
+    2) control lighting
+    3) trigger alarm sound
  */
 
  /*
