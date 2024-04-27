@@ -434,65 +434,65 @@ example:
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
 
-Thing 5)
+Thing 5) Security System
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of cameras
+    2) motion sensor sensitivity in meters
+    3) alarm loudness in dB
+    4) backup battery capacity in mAh
+    5) connectivity type
 3 things it can do:
-    1)
-    2)
-    3)
+    1) detect intrusion
+    2) record video
+    3) send alert to smartphone
 
-Thing 6)
+Thing 6) Lighting Control
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of connected lights
+    2) energy consumption in watts
+    3) colour temperature
+    4) brightness levels
+    5) motion detection sensitivity
 3 things it can do:
-    1)
-    2)
-    3)
+    1) adjust brightness
+    2) adjust light colour
+    3) detect motion
 
-Thing 7)
+Thing 7) HVAC System
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) thermostat accuracy
+    2) filter quality
+    3) energy efficiency rating
+    4) cooling capacity in BTUs
+    5) heating capacity in BTUs
 3 things it can do:
-    1)
-    2)
-    3)
+    1) increase room temperature
+    2) filter indoor air
+    3) optimise energy use
 
-Thing 8)
+Thing 8) Entertainment System
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of speakers
+    2) screen size
+    3) supported video format
+    4) maximum audio output level
+    5) brand
 3 things it can do:
-    1)
-    2)
-    3)
+    1) play video content
+    2) stream audio content
+    3) connect to bluetooth device
 
-Thing 9)
+Thing 9) Smart Appliance
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) wash cycle type
+    2) energy consumption per cycle in kWh
+    3) water usage per cycle in l
+    4) model
+    5) smart home compatibility
 3 things it can do:
-    1)
-    2)
-    3)
+    1) wash clothes
+    2) optimise power usage based on load
+    3) send alert to homeowners
  */
 
 /*
