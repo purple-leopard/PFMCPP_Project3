@@ -343,7 +343,7 @@ Thing 10) Smart Home System
     2) Lighting Control
     3) HVAC System
     4) Entertainment System
-    5) Smart Appliances
+    5) Smart Appliance
 3 things it can do:
     1) monitor home temperature
     2) control lighting
