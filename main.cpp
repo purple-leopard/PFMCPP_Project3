@@ -436,11 +436,11 @@ example:
 
 Thing 5) Security System
 5 properties:
-    1) number of cameras
-    2) motion sensor sensitivity in meters
-    3) alarm loudness in dB
-    4) backup battery capacity in mAh
-    5) connectivity type
+    1) number of cameras (int)
+    2) motion sensor sensitivity in meters (float)
+    3) alarm loudness in dB (float)
+    4) backup battery capacity in mAh (int)
+    5) connectivity type (std::string)
 3 things it can do:
     1) detect intrusion
     2) record video
@@ -448,11 +448,11 @@ Thing 5) Security System
 
 Thing 6) Lighting Control
 5 properties:
-    1) number of connected lights
-    2) energy consumption in watts
-    3) colour temperature
-    4) brightness levels
-    5) motion detection sensitivity
+    1) number of connected lights (int)
+    2) energy consumption in watts (int)
+    3) colour temperature (std::string)
+    4) brightness levels (int)
+    5) motion detection sensitivity (int)
 3 things it can do:
     1) adjust brightness
     2) adjust light colour
@@ -460,11 +460,11 @@ Thing 6) Lighting Control
 
 Thing 7) HVAC System
 5 properties:
-    1) thermostat accuracy
-    2) filter quality
-    3) energy efficiency rating
-    4) cooling capacity in BTUs
-    5) heating capacity in BTUs
+    1) thermostat accuracy (float)
+    2) filter quality (std::string)
+    3) energy efficiency rating (std::string)
+    4) cooling capacity in BTUs (int)
+    5) heating capacity in BTUs (int)
 3 things it can do:
     1) increase room temperature
     2) filter indoor air
@@ -472,11 +472,11 @@ Thing 7) HVAC System
 
 Thing 8) Entertainment System
 5 properties:
-    1) number of speakers
-    2) screen size
-    3) supported video format
-    4) maximum audio output level
-    5) brand
+    1) number of speakers (int)
+    2) screen size (int)
+    3) supported video format (std::string)
+    4) maximum audio output level (int)
+    5) brand (std::string)
 3 things it can do:
     1) play video content
     2) stream audio content
@@ -484,11 +484,11 @@ Thing 8) Entertainment System
 
 Thing 9) Smart Appliance
 5 properties:
-    1) wash cycle type
-    2) energy consumption per cycle in kWh
-    3) water usage per cycle in l
-    4) model
-    5) smart home compatibility
+    1) wash cycle type (std::string)
+    2) energy consumption per cycle in kWh (float)
+    3) water usage per cycle in l (float)
+    4) model (std::string)
+    5) smart home compatibility (std::string)
 3 things it can do:
     1) wash clothes
     2) optimise power usage based on load
