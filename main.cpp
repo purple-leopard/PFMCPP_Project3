@@ -447,10 +447,15 @@ Thing 1) Dog
 struct Dog
 {
     // weight (float)
+    float weight = 10.0f;
     // height (float)
+    float height = 0.5f;
     // age in years (int)
+    int ageInYears = 3;
     // fur colour (std::string)
+    std::string furColour = "brown";
     // breed (std::string)
+    std::string breed = "Beagle";
     // 3 things it can do:
     //     1) bark at postman
     //     2) fetch ball
@@ -472,10 +477,15 @@ Thing 2) Laptop
 struct Laptop
 {
     // brand (std::string)
+    std::string brand = "Apple";
     // model (std::string)
+    std::string model = "Macbook";
     // operating system version (std::string)
+    std::string operatingSystemVersion = "Snow Leopard";
     // memory capacity (int) // if measured in GB
+    int memoryCapacity = 16;
     // number of processor cores (int)
+    int numberOfProcessorCores = 4;
     // 3 things it can do:
     //     1) boot up
     //     2) launch program
@@ -497,10 +507,15 @@ Thing 3) Weather Satellite
 struct WeatherSatellite
 {
     // number of solar panels (int)
+    int numberOfSolarPanels = 8;
     // radiation hardening type (std::string)
+    std::string radiationHardeningType = "Standard";
     // attitude (double)
+    double attitude = 360.0;
     // orbital velocity (double)
+    double orbitalVelocity = 7.8;
     // antenna center frequency (float)
+    float antennaCenterFrequency = 2.4f;
     // 3 things it can do:
     //     1) switch imaging modality 
     //     2) transmit data to ground station
@@ -522,10 +537,15 @@ Thing 4) Film Camera
 struct FilmCamera
 {
     // viewfinder type (std::string)
+    std::string viewfinderType = "Waist Level";
     // lens mount type (std::string)
+    std::string lensMountType = "FD";
     // maximum shutter speed (float)
+    float maximumShutterSpeed = 0.001f;
     // weight (float)
+    float weight = 1.2f;
     // brand (std::string)
+    std::string brand = "Canon";
     // 3 things it can do:
     //     1) release shutter
     //     2) advance film
@@ -547,10 +567,15 @@ Thing 5) Security System
 struct SecuritySystem
 {
     // number of cameras (int)
+    int numberOfCameras = 4;
     // motion sensor sensitivity in meters (float)
+    float motionSensorSensitivity = 5.0f;
     // alarm loudness in dB (float)
+    float alarmLoudness = 110.0f;
     // backup battery capacity in mAh (int)
+    int backupBatteryCapacity = 10000;
     // connectivity type (std::string)
+    std::string connectivityType = "WiFi";
     // 3 things it can do:
     //     1) detect intrusion
     //     2) record video
@@ -572,10 +597,15 @@ Thing 6) Lighting Control
 struct LightingControl
 {
     // number of connected lights (int)
+    int numberOfConnectedLights = 10;
     // energy consumption in watts (int)
+    int energyConsumption = 500;
     // colour temperature (std::string)
+    std::string colourTemperature = "5000K";
     // brightness levels (int)
+    int brightnessLevels = 10;
     // motion detection sensitivity (int)
+    int motionDetectionSensitivity = 3;
     // 3 things it can do:
     //     1) adjust brightness
     //     2) adjust light colour
@@ -597,10 +627,15 @@ Thing 7) HVAC System
 struct HVACSystem
 {
     //  thermostat accuracy (float)
+    float thermostatAccuracy = 0.1f;
     //  filter quality (std::string)
+    std::string filterQuality = "HEPA";
     //  energy efficiency rating (std::string)
+    std::string energyEfficiencyRating = "A++";
     //  cooling capacity in BTUs (int)
+    int coolingCapacity = 5000;
     //  heating capacity in BTUs (int)
+    int heatingCapacity = 5000;
     // 3 things it can do:
     //     1) increase room temperature
     //     2) filter indoor air
@@ -622,10 +657,15 @@ Thing 8) Entertainment System
 struct EntertainmentSystem
 {
     // number of speakers (int)
+    int numberOfSpeakers = 5;
     // screen size (int)
+    int screenSize = 55;
     // supported video format (std::string)
+    std::string supportedVideoFormat = "4K UHD";
     // maximum audio output level (int)
+    int maximumAudioOutputLevel = 120;
     // brand (std::string)
+    std::string brand = "Sony";
     // 3 things it can do:
     //     1) play video content
     //     2) stream audio content
@@ -647,10 +687,15 @@ Thing 9) Smart Appliance
 struct SmartAppliance
 {
     // wash cycle type (std::string)
+    std::string washCycleType = "Cotton";
     // energy consumption per cycle in kWh (float)
+    float energyConsumptionPerCycle = 0.5f;
     // water usage per cycle in l (float)
+    float waterUsagePerCycle = 10.0f;
     // model (std::string)
+    std::string model = "WashMaster 3000";
     // smart home compatibility (std::string)
+    std::string smartHomeCompatibility = "HomeKit";
     // 3 things it can do:
     //     1) wash clothes
     //     2) optimise power usage based on load
@@ -672,10 +717,15 @@ Thing 10) Smart Home System
 struct SmartHomeSystem
 {
     // Security System
+    SecuritySystem securitySystem;
     // Lighting Control
+    LightingControl lightingControl;
     // HVAC System
+    HVACSystem hvacSystem;
     // Entertainment System
+    EntertainmentSystem entertainmentSystem;
     // Smart Appliance
+    SmartAppliance smartAppliance;
     // 3 things it can do:
     //     1) monitor home temperature
     //     2) control lighting
