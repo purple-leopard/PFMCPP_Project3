@@ -444,7 +444,10 @@ Thing 1) Dog
     2) fetch ball
     3) sit
 */
+struct Dog
+{
 
+};
 /*
 Thing 2) Laptop
 5 properties:
@@ -458,7 +461,10 @@ Thing 2) Laptop
     2) launch program
     3) invoke compiler
 */
+struct Laptop
+{
 
+};
 /*
 Thing 3) Weather Satellite
 5 properties:
@@ -472,7 +478,10 @@ Thing 3) Weather Satellite
     2) transmit data to ground station
     3) monitor battery charge level
 */
+struct WeatherSatellite
+{
 
+};
 /*
 Thing 4) Film Camera
 5 properties:
@@ -486,7 +495,10 @@ Thing 4) Film Camera
     2) advance film
     3) engage lightmeter
 */
+struct FilmCamera
+{
 
+};
 /*
 Thing 5) Security System
 5 properties:
@@ -500,7 +512,10 @@ Thing 5) Security System
     2) record video
     3) send alert to smartphone
 */
+struct SecuritySystem
+{
 
+};
 /*
 Thing 6) Lighting Control
 5 properties:
@@ -514,7 +529,10 @@ Thing 6) Lighting Control
     2) adjust light colour
     3) detect motion
 */
+struct LightingControl
+{
 
+};
 /*
 Thing 7) HVAC System
 5 properties:
@@ -528,7 +546,10 @@ Thing 7) HVAC System
     2) filter indoor air
     3) optimise energy use
 */
+struct HVACSystem
+{
 
+};
 /*
 Thing 8) Entertainment System
 5 properties:
@@ -542,7 +563,10 @@ Thing 8) Entertainment System
     2) stream audio content
     3) connect to bluetooth device
 */
+struct EntertainmentSystem
+{
 
+};
 /*
 Thing 9) Smart Appliance
 5 properties:
@@ -556,7 +580,10 @@ Thing 9) Smart Appliance
     2) optimise power usage based on load
     3) send alert to homeowners
 */
+struct SmartAppliance
+{
 
+};
 /*
 Thing 10) Smart Home System
 5 properties:
@@ -570,7 +597,10 @@ Thing 10) Smart Home System
     2) control lighting
     3) trigger alarm sound
 */
+struct SmartHomeSystem
+{
 
+};
 /*
 =================
 Part 1d - Step 7: Commit
