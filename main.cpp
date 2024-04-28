@@ -458,8 +458,11 @@ struct Dog
     std::string breed = "Beagle";
     // 3 things it can do:
     // bark at postman
+    void barkAtPostman();
     // fetch ball
+    void fetchBall();
     // sit
+    void sit();
 };
 /*
 Thing 2) Laptop
@@ -488,8 +491,11 @@ struct Laptop
     int numberOfProcessorCores = 4;
     // 3 things it can do:
     // boot up
+    void bootUp();
     // launch program
+    bool launchProgram(const std::string& programName); // returns true if program launches successfully
     // invoke compiler
+    bool invokeCompiler(); // returns true if compiler is invoked successfully
 };
 /*
 Thing 3) Weather Satellite
@@ -518,8 +524,11 @@ struct WeatherSatellite
     float antennaCenterFrequency = 2.4f;
     // 3 things it can do:
     // switch imaging modality 
+    void switchImagingModality();
     // transmit data to ground station
+    int transmitDataToGroundStation(); // returns number of images transmitted
     // monitor battery charge level
+    float monitorBatteryChargeLevel(); // returns battery charge level
 };
 /*
 Thing 4) Film Camera
@@ -548,8 +557,11 @@ struct FilmCamera
     std::string brand = "Canon";
     // 3 things it can do:
     // release shutter
+    void releaseShutter();
     // advance film
+    void advanceFilm();
     // engage lightmeter
+    void engageLightmeter();
 };
 /*
 Thing 5) Security System
@@ -578,8 +590,11 @@ struct SecuritySystem
     std::string connectivityType = "WiFi";
     // 3 things it can do:
     // detect intrusion
+    bool detectIntrusion(); // returns true if an intrusion is detected
     // record video
+    int recordVideo(); // returns number of frames recorded
     // send alert to smartphone
+    void sendAlertToSmartphone();
 };
 /*
 Thing 6) Lighting Control
@@ -608,8 +623,11 @@ struct LightingControl
     int motionDetectionSensitivity = 3;
     // 3 things it can do:
     // adjust brightness
+    void adjustBrightness(int level);
     // adjust light colour
+    void adjustLightColour(const std::string& colour);
     // detect motion
+    bool detectMotion(); // returns true if motion is detected
 };
 /*
 Thing 7) HVAC System
@@ -638,8 +656,11 @@ struct HVACSystem
     int heatingCapacity = 5000;
     // 3 things it can do:
     // increase room temperature
+    void increaseRoomTemperature(float degrees);
     // filter indoor air
+    void filterIndoorAir();
     // optimise energy use
+    void optimiseEnergyUse();
 };
 /*
 Thing 8) Entertainment System
@@ -668,8 +689,11 @@ struct EntertainmentSystem
     std::string brand = "Sony";
     // 3 things it can do:
     // play video content
+    void playVideoContent();
     // stream audio content
+    float streamAudioContent(); // returns audio data
     // connect to bluetooth device
+    bool connectToBluetoothDevice(); // returns true if Bluetooth device is connected successfully
 };
 /*
 Thing 9) Smart Appliance
@@ -698,8 +722,11 @@ struct SmartAppliance
     std::string smartHomeCompatibility = "HomeKit";
     // 3 things it can do:
     // wash clothes
+    void washClothes();
     // optimise power usage based on load
+    void optimisePowerUsageBasedOnLoad();
     // send alert to homeowners
+    bool sendAlertToHomeowners(); // returns true if alert is sent successfully
 };
 /*
 Thing 10) Smart Home System
@@ -728,8 +755,11 @@ struct SmartHomeSystem
     SmartAppliance smartAppliance;
     // 3 things it can do:
     // monitor home temperature
+    float monitorHomeTemperature(); // returns temperature
     // control lighting
+    void controlLighting(const std::string& roomId);
     // trigger alarm sound
+    void triggerAlarmSound();
 };
 /*
 =================
