@@ -443,7 +443,9 @@ Thing 1) Dog
     1) bark at postman
     2) fetch ball
     3) sit
+*/
 
+/*
 Thing 2) Laptop
 5 properties:
     1) brand (std::string)
@@ -455,7 +457,9 @@ Thing 2) Laptop
     1) boot up
     2) launch program
     3) invoke compiler
+*/
 
+/*
 Thing 3) Weather Satellite
 5 properties:
     1) number of solar panels (int)
@@ -467,7 +471,9 @@ Thing 3) Weather Satellite
     1) switch imaging modality 
     2) transmit data to ground station
     3) monitor battery charge level
+*/
 
+/*
 Thing 4) Film Camera
 5 properties:
     1) viewfinder type (std::string)
@@ -479,7 +485,9 @@ Thing 4) Film Camera
     1) release shutter
     2) advance film
     3) engage lightmeter
+*/
 
+/*
 Thing 5) Security System
 5 properties:
     1) number of cameras (int)
@@ -491,7 +499,9 @@ Thing 5) Security System
     1) detect intrusion
     2) record video
     3) send alert to smartphone
+*/
 
+/*
 Thing 6) Lighting Control
 5 properties:
     1) number of connected lights (int)
@@ -503,7 +513,9 @@ Thing 6) Lighting Control
     1) adjust brightness
     2) adjust light colour
     3) detect motion
+*/
 
+/*
 Thing 7) HVAC System
 5 properties:
     1) thermostat accuracy (float)
@@ -515,7 +527,9 @@ Thing 7) HVAC System
     1) increase room temperature
     2) filter indoor air
     3) optimise energy use
+*/
 
+/*
 Thing 8) Entertainment System
 5 properties:
     1) number of speakers (int)
@@ -527,7 +541,9 @@ Thing 8) Entertainment System
     1) play video content
     2) stream audio content
     3) connect to bluetooth device
+*/
 
+/*
 Thing 9) Smart Appliance
 5 properties:
     1) wash cycle type (std::string)
@@ -539,7 +555,9 @@ Thing 9) Smart Appliance
     1) wash clothes
     2) optimise power usage based on load
     3) send alert to homeowners
+*/
 
+/*
 Thing 10) Smart Home System
 5 properties:
     1) Security System
