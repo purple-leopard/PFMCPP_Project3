@@ -446,7 +446,16 @@ Thing 1) Dog
 */
 struct Dog
 {
-
+    // 5 properties:
+    //     1) weight (float)
+    //     2) height (float)
+    //     3) age in years (int)
+    //     4) fur colour (std::string)
+    //     5) breed (std::string)
+    // 3 things it can do:
+    //     1) bark at postman
+    //     2) fetch ball
+    //     3) sit
 };
 /*
 Thing 2) Laptop
@@ -463,7 +472,16 @@ Thing 2) Laptop
 */
 struct Laptop
 {
-
+    // 5 properties:
+    //     1) brand (std::string)
+    //     2) model (std::string)
+    //     3) operating system version (std::string)
+    //     4) memory capacity (int) // if measured in GB
+    //     5) number of processor cores (int)
+    // 3 things it can do:
+    //     1) boot up
+    //     2) launch program
+    //     3) invoke compiler
 };
 /*
 Thing 3) Weather Satellite
@@ -480,7 +498,16 @@ Thing 3) Weather Satellite
 */
 struct WeatherSatellite
 {
-
+    // 5 properties:
+    //     1) number of solar panels (int)
+    //     2) radiation hardening type (std::string)
+    //     3) attitude (double)
+    //     4) orbital velocity (double)
+    //     5) antenna center frequency (float)
+    // 3 things it can do:
+    //     1) switch imaging modality 
+    //     2) transmit data to ground station
+    //     3) monitor battery charge level
 };
 /*
 Thing 4) Film Camera
@@ -497,7 +524,16 @@ Thing 4) Film Camera
 */
 struct FilmCamera
 {
-
+    // 5 properties:
+    //     1) viewfinder type (std::string)
+    //     2) lens mount type (std::string)
+    //     3) maximum shutter speed (float)
+    //     4) weight (float)
+    //     5) brand (std::string)
+    // 3 things it can do:
+    //     1) release shutter
+    //     2) advance film
+    //     3) engage lightmeter
 };
 /*
 Thing 5) Security System
@@ -514,7 +550,16 @@ Thing 5) Security System
 */
 struct SecuritySystem
 {
-
+    // 5 properties:
+    //     1) number of cameras (int)
+    //     2) motion sensor sensitivity in meters (float)
+    //     3) alarm loudness in dB (float)
+    //     4) backup battery capacity in mAh (int)
+    //     5) connectivity type (std::string)
+    // 3 things it can do:
+    //     1) detect intrusion
+    //     2) record video
+    //     3) send alert to smartphone
 };
 /*
 Thing 6) Lighting Control
@@ -531,7 +576,16 @@ Thing 6) Lighting Control
 */
 struct LightingControl
 {
-
+    // 5 properties:
+    //     1) number of connected lights (int)
+    //     2) energy consumption in watts (int)
+    //     3) colour temperature (std::string)
+    //     4) brightness levels (int)
+    //     5) motion detection sensitivity (int)
+    // 3 things it can do:
+    //     1) adjust brightness
+    //     2) adjust light colour
+    //     3) detect motion
 };
 /*
 Thing 7) HVAC System
@@ -548,7 +602,16 @@ Thing 7) HVAC System
 */
 struct HVACSystem
 {
-
+    //  5 properties:
+    //     1) thermostat accuracy (float)
+    //     2) filter quality (std::string)
+    //     3) energy efficiency rating (std::string)
+    //     4) cooling capacity in BTUs (int)
+    //     5) heating capacity in BTUs (int)
+    // 3 things it can do:
+    //     1) increase room temperature
+    //     2) filter indoor air
+    //     3) optimise energy use
 };
 /*
 Thing 8) Entertainment System
@@ -565,7 +628,16 @@ Thing 8) Entertainment System
 */
 struct EntertainmentSystem
 {
-
+    // 5 properties:
+    //     1) number of speakers (int)
+    //     2) screen size (int)
+    //     3) supported video format (std::string)
+    //     4) maximum audio output level (int)
+    //     5) brand (std::string)
+    // 3 things it can do:
+    //     1) play video content
+    //     2) stream audio content
+    //     3) connect to bluetooth device
 };
 /*
 Thing 9) Smart Appliance
@@ -582,7 +654,16 @@ Thing 9) Smart Appliance
 */
 struct SmartAppliance
 {
-
+    // 5 properties:
+    //     1) wash cycle type (std::string)
+    //     2) energy consumption per cycle in kWh (float)
+    //     3) water usage per cycle in l (float)
+    //     4) model (std::string)
+    //     5) smart home compatibility (std::string)
+    // 3 things it can do:
+    //     1) wash clothes
+    //     2) optimise power usage based on load
+    //     3) send alert to homeowners
 };
 /*
 Thing 10) Smart Home System
@@ -599,7 +680,16 @@ Thing 10) Smart Home System
 */
 struct SmartHomeSystem
 {
-
+    // 5 properties:
+    //     1) Security System
+    //     2) Lighting Control
+    //     3) HVAC System
+    //     4) Entertainment System
+    //     5) Smart Appliance
+    // 3 things it can do:
+    //     1) monitor home temperature
+    //     2) control lighting
+    //     3) trigger alarm sound
 };
 /*
 =================
