@@ -1062,7 +1062,7 @@ struct Dog
     // fetch ball
     void fetchBall();
     // try new collar
-    bool tryNewCollar(DogCollar newCollar); // return wether the new collar fits
+    bool tryNewCollar(DogCollar newCollar); // return whether the new collar fits
 
     DogCollar currentCollar;
 };
