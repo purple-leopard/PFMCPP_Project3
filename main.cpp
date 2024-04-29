@@ -456,6 +456,21 @@ struct Dog
     std::string furColour = "brown";
     // breed (std::string)
     std::string breed = "Beagle";
+
+    struct DogCollar
+    {
+        std::string material = "leather";
+        std::string color = "red";
+        std::string dogName = "BUSTER";
+        float length = 15.0f;
+        float width = 0.5f;
+
+        // Actions
+        void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
+        void remove(bool clipRelease = true);
+        bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);  // returns true if adjustment is successful
+    };
+
     // 3 things it can do:
     // bark at postman
     void barkAtPostman();
@@ -489,6 +504,21 @@ struct Laptop
     int memoryCapacity = 16;
     // number of processor cores (int)
     int numberOfProcessorCores = 4;
+    
+    struct Battery
+    {
+        std::string type = "Li-ion";
+        float capacity = 5000.0f;
+        int chargeCycles = 1000;
+        float maxChargeCurrent = 2.0f;
+        float voltage = 18.0f;
+
+        // Actions
+        bool charge(float chargeToLevel = 100.0f); // returns true if battery finished charging
+        float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge"); // returns percentage of capacity remaining
+        void limitChargeCurrent(float inputCurrent, float temperatureLimit = 85.8f);
+    };
+
     // 3 things it can do:
     // boot up
     void bootUp();
