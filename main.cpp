@@ -83,51 +83,51 @@ Main Object: Car Interior
         Name 4 nouns you'll find on the [Sub Object]
             1) paddle shifters
             2) 'cruise control' controls
-            3) 
-            4) 
+            3) audio system controls
+            4) horn
         Name 2 actions that the [Sub Object] can do:
-            1) adjust cruise control settings.
-            2)
+            1) adjust cruise control settings
+            2) change stereo system playback volume 
         
     Sub Object: Instrument Cluster
         Name 4 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
-            4)
+            1) speedometer
+            2) tachometer
+            3) oil temperature indicator
+            4) coolant temperature indicator
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) display speed
+            2) display engine revs
+            3) display oil temperature
     
     Sub Object: Environment Controls
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) temperature controls
+            2) fan speed controls
+            3) recirculate air control
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) adjust temperature
+            2) adjust fan speed
+            3) engage air recirculation
 
     Sub Object: Infotainment System
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) audio source selector
+            2) playback volume control
+            3) screen
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) select audio source
+            2) increase volume
+            3) display album cover
 
     Sub Object: Seat 
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) headrest
+            2) seat position controls
+            3) seatbelt 
         Name 2 actions that the [Sub Object] can do:
-            1)
-            2)
+            1) adjust seat height
+            2) restrain driver
 */
 
 /*
@@ -196,53 +196,7 @@ Part 1b - Step 2: Assignment
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
 
-Thing 1)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 
-Thing 2)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 3)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 4)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 */
 
 /*
@@ -337,17 +291,7 @@ Define an object that is made of 5 sub-objects.
     These 5 sub-objects will not be defined using Primitives, but instead will be their own UDTs 
     you'll define these 5 sub-objects in Part 1d.
 
-Thing 10)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
+
  */
 
  /*
@@ -434,65 +378,7 @@ example:
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
 
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
  */
 
 /*
@@ -545,12 +431,145 @@ MOVE THEM to the space below this block comment and put them in numerical order
     simply CUT and PASTE them in the space provided below:
 */
 
+/*
+Thing 1) Dog
+5 properties:
+    1) weight (float)
+    2) height (float)
+    3) age in years (int)
+    4) fur colour (std::string)
+    5) breed (std::string)
+3 things it can do:
+    1) bark at postman
+    2) fetch ball
+    3) try new collar
+*/
 
+/*
+Thing 2) Laptop
+5 properties:
+    1) brand (std::string)
+    2) model (std::string)
+    3) operating system version (std::string)
+    4) memory capacity (int) // if measured in GB
+    5) number of processor cores (int)
+3 things it can do:
+    1) replace battery
+    2) launch program
+    3) invoke compiler
+*/
 
+/*
+Thing 3) Weather Satellite
+5 properties:
+    1) number of solar panels (int)
+    2) radiation hardening type (std::string)
+    3) attitude (double)
+    4) orbital velocity (double)
+    5) antenna center frequency (float)
+3 things it can do:
+    1) switch imaging modality 
+    2) transmit data to ground station
+    3) monitor battery charge level
+*/
 
+/*
+Thing 4) Film Camera
+5 properties:
+    1) viewfinder type (std::string)
+    2) lens mount type (std::string)
+    3) maximum shutter speed (float)
+    4) weight (float)
+    5) brand (std::string)
+3 things it can do:
+    1) release shutter
+    2) advance film
+    3) engage lightmeter
+*/
 
+/*
+Thing 5) Security System
+5 properties:
+    1) number of cameras (int)
+    2) motion sensor sensitivity in meters (float)
+    3) alarm loudness in dB (float)
+    4) backup battery capacity in mAh (int)
+    5) connectivity type (std::string)
+3 things it can do:
+    1) detect intrusion
+    2) record video
+    3) send alert to smartphone
+*/
 
+/*
+Thing 6) Lighting Control
+5 properties:
+    1) number of connected lights (int)
+    2) energy consumption in watts (int)
+    3) colour temperature (std::string)
+    4) brightness levels (int)
+    5) motion detection sensitivity (int)
+3 things it can do:
+    1) adjust brightness
+    2) adjust light colour
+    3) detect motion
+*/
 
+/*
+Thing 7) HVAC System
+5 properties:
+    1) thermostat accuracy (float)
+    2) filter quality (std::string)
+    3) energy efficiency rating (std::string)
+    4) cooling capacity in BTUs (int)
+    5) heating capacity in BTUs (int)
+3 things it can do:
+    1) increase room temperature
+    2) filter indoor air
+    3) optimise energy use
+*/
+
+/*
+Thing 8) Entertainment System
+5 properties:
+    1) number of speakers (int)
+    2) screen size (int)
+    3) supported video format (std::string)
+    4) maximum audio output level (int)
+    5) brand (std::string)
+3 things it can do:
+    1) play video content
+    2) stream audio content
+    3) connect to bluetooth device
+*/
+
+/*
+Thing 9) Smart Appliance
+5 properties:
+    1) wash cycle type (std::string)
+    2) energy consumption per cycle in kWh (float)
+    3) water usage per cycle in l (float)
+    4) model (std::string)
+    5) smart home compatibility (std::string)
+3 things it can do:
+    1) wash clothes
+    2) optimise power usage based on load
+    3) send alert to homeowners
+*/
+
+/*
+Thing 10) Smart Home System
+5 properties:
+    1) Security System
+    2) Lighting Control
+    3) HVAC System
+    4) Entertainment System
+    5) Smart Appliance
+3 things it can do:
+    1) monitor home temperature
+    2) control lighting
+    3) trigger alarm sound
+*/
 
 /*
 =================
@@ -1010,13 +1029,249 @@ Part 1e - Step 19: Request a review
 paste your code below
 */
 
+struct Dog
+{
+    // weight (float)
+    float weight = 10.0f;
+    // height (float)
+    float height = 0.5f;
+    // age in years (int)
+    int ageInYears = 3;
+    // fur colour (std::string)
+    std::string furColour = "brown";
+    // breed (std::string)
+    std::string breed = "Beagle";
 
+    struct DogCollar
+    {
+        std::string material = "leather";
+        std::string color = "red";
+        std::string dogName = "BUSTER";
+        float length = 15.0f;
+        float width = 0.5f;
 
+        // Actions
+        void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
+        void remove(bool clipRelease = true);
+        bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);  // returns true if adjustment is successful
+    };
 
+    // 3 things it can do:
+    // bark at postman
+    void barkAtPostman();
+    // fetch ball
+    void fetchBall();
+    // try new collar
+    bool tryNewCollar(DogCollar newCollar); // return whether the new collar fits
 
+    DogCollar currentCollar;
+};
 
+struct Laptop
+{
+    // brand (std::string)
+    std::string brand = "Apple";
+    // model (std::string)
+    std::string model = "Macbook";
+    // operating system version (std::string)
+    std::string operatingSystemVersion = "Snow Leopard";
+    // memory capacity (int) // if measured in GB
+    int memoryCapacity = 16;
+    // number of processor cores (int)
+    int numberOfProcessorCores = 4;
+    
+    struct Battery
+    {
+        std::string type = "Li-ion";
+        float capacity = 5000.0f;
+        int chargeCycles = 1000;
+        float maxChargeCurrent = 2.0f;
+        float voltage = 18.0f;
 
+        // Actions
+        bool charge(float chargeToLevel = 100.0f); // returns true if battery finished charging
+        float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge"); // returns percentage of capacity remaining
+        void limitChargeCurrent(float inputCurrent, float temperatureLimit = 85.8f);
+    };
 
+    // 3 things it can do:
+    // replace battery 
+    void replaceBattery(Battery newBattery);
+    // launch program
+    bool launchProgram(const std::string& programName); // returns true if program launches successfully
+    // invoke compiler
+    bool invokeCompiler(); // returns true if compiler is invoked successfully
+
+    Battery currentBattery;
+};
+
+struct WeatherSatellite
+{
+    // number of solar panels (int)
+    int numberOfSolarPanels = 8;
+    // radiation hardening type (std::string)
+    std::string radiationHardeningType = "Standard";
+    // attitude (double)
+    double attitude = 360.0;
+    // orbital velocity (double)
+    double orbitalVelocity = 7.8;
+    // antenna center frequency (float)
+    float antennaCenterFrequency = 2.4f;
+    // 3 things it can do:
+    // switch imaging modality 
+    void switchImagingModality();
+    // transmit data to ground station
+    int transmitDataToGroundStation(); // returns number of images transmitted
+    // monitor battery charge level
+    float monitorBatteryChargeLevel(); // returns battery charge level
+};
+
+struct FilmCamera
+{
+    // viewfinder type (std::string)
+    std::string viewfinderType = "Waist Level";
+    // lens mount type (std::string)
+    std::string lensMountType = "FD";
+    // maximum shutter speed (float)
+    float maximumShutterSpeed = 0.001f;
+    // weight (float)
+    float weight = 1.2f;
+    // brand (std::string)
+    std::string brand = "Canon";
+    // 3 things it can do:
+    // release shutter
+    void releaseShutter();
+    // advance film
+    void advanceFilm();
+    // engage lightmeter
+    void engageLightmeter();
+};
+
+struct SecuritySystem
+{
+    // number of cameras (int)
+    int numberOfCameras = 4;
+    // motion sensor sensitivity in meters (float)
+    float motionSensorSensitivity = 5.0f;
+    // alarm loudness in dB (float)
+    float alarmLoudness = 110.0f;
+    // backup battery capacity in mAh (int)
+    int backupBatteryCapacity = 10000;
+    // connectivity type (std::string)
+    std::string connectivityType = "WiFi";
+    // 3 things it can do:
+    // detect intrusion
+    bool detectIntrusion(); // returns true if an intrusion is detected
+    // record video
+    int recordVideo(); // returns number of frames recorded
+    // send alert to smartphone
+    void sendAlertToSmartphone();
+};
+
+struct LightingControl
+{
+    // number of connected lights (int)
+    int numberOfConnectedLights = 10;
+    // energy consumption in watts (int)
+    int energyConsumption = 500;
+    // colour temperature (std::string)
+    std::string colourTemperature = "5000K";
+    // brightness levels (int)
+    int brightnessLevels = 10;
+    // motion detection sensitivity (int)
+    int motionDetectionSensitivity = 3;
+    // 3 things it can do:
+    // adjust brightness
+    void adjustBrightness(int level);
+    // adjust light colour
+    void adjustLightColour(const std::string& colour);
+    // detect motion
+    bool detectMotion(); // returns true if motion is detected
+};
+
+struct HVACSystem
+{
+    //  thermostat accuracy (float)
+    float thermostatAccuracy = 0.1f;
+    //  filter quality (std::string)
+    std::string filterQuality = "HEPA";
+    //  energy efficiency rating (std::string)
+    std::string energyEfficiencyRating = "A++";
+    //  cooling capacity in BTUs (int)
+    int coolingCapacity = 5000;
+    //  heating capacity in BTUs (int)
+    int heatingCapacity = 5000;
+    // 3 things it can do:
+    // increase room temperature
+    void increaseRoomTemperature(float degrees);
+    // filter indoor air
+    void filterIndoorAir();
+    // optimise energy use
+    void optimiseEnergyUse();
+};
+
+struct EntertainmentSystem
+{
+    // number of speakers (int)
+    int numberOfSpeakers = 5;
+    // screen size (int)
+    int screenSize = 55;
+    // supported video format (std::string)
+    std::string supportedVideoFormat = "4K UHD";
+    // maximum audio output level (int)
+    int maximumAudioOutputLevel = 120;
+    // brand (std::string)
+    std::string brand = "Sony";
+    // 3 things it can do:
+    // play video content
+    void playVideoContent();
+    // stream audio content
+    float streamAudioContent(); // returns audio data
+    // connect to bluetooth device
+    bool connectToBluetoothDevice(); // returns true if Bluetooth device is connected successfully
+};
+
+struct SmartAppliance
+{
+    // wash cycle type (std::string)
+    std::string washCycleType = "Cotton";
+    // energy consumption per cycle in kWh (float)
+    float energyConsumptionPerCycle = 0.5f;
+    // water usage per cycle in l (float)
+    float waterUsagePerCycle = 10.0f;
+    // model (std::string)
+    std::string model = "WashMaster 3000";
+    // smart home compatibility (std::string)
+    std::string smartHomeCompatibility = "HomeKit";
+    // 3 things it can do:
+    // wash clothes
+    void washClothes();
+    // optimise power usage based on load
+    void optimisePowerUsageBasedOnLoad();
+    // send alert to homeowners
+    bool sendAlertToHomeowners(); // returns true if alert is sent successfully
+};
+
+struct SmartHomeSystem
+{
+    // Security System
+    SecuritySystem securitySystem;
+    // Lighting Control
+    LightingControl lightingControl;
+    // HVAC System
+    HVACSystem hvacSystem;
+    // Entertainment System
+    EntertainmentSystem entertainmentSystem;
+    // Smart Appliance
+    SmartAppliance smartAppliance;
+    // 3 things it can do:
+    // monitor home temperature
+    float monitorHomeTemperature(); // returns temperature
+    // control lighting
+    void controlLighting(const std::string& roomId);
+    // trigger alarm sound
+    void triggerAlarmSound();
+};
 
 int main()
 {
