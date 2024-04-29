@@ -442,7 +442,7 @@ Thing 1) Dog
 3 things it can do:
     1) bark at postman
     2) fetch ball
-    3) sit
+    3) try new collar
 */
 struct Dog
 {
@@ -476,8 +476,10 @@ struct Dog
     void barkAtPostman();
     // fetch ball
     void fetchBall();
-    // sit
-    void sit();
+    // try new collar
+    bool tryNewCollar(DogCollar newCollar); // return wether the new collar fits
+
+    DogCollar currentCollar;
 };
 /*
 Thing 2) Laptop
@@ -488,7 +490,7 @@ Thing 2) Laptop
     4) memory capacity (int) // if measured in GB
     5) number of processor cores (int)
 3 things it can do:
-    1) boot up
+    1) replace battery
     2) launch program
     3) invoke compiler
 */
@@ -520,12 +522,14 @@ struct Laptop
     };
 
     // 3 things it can do:
-    // boot up
-    void bootUp();
+    // replace battery 
+    void replaceBattery(Battery newBattery);
     // launch program
     bool launchProgram(const std::string& programName); // returns true if program launches successfully
     // invoke compiler
     bool invokeCompiler(); // returns true if compiler is invoked successfully
+
+    Battery currentBattery;
 };
 /*
 Thing 3) Weather Satellite
