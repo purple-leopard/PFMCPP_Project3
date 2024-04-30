@@ -137,15 +137,10 @@ paste your code below
 
 struct Dog
 {
-    // weight (float)
     float weight = 10.0f;
-    // height (float)
     float height = 0.5f;
-    // age in years (int)
     int ageInYears = 3;
-    // fur colour (std::string)
     std::string furColour = "brown";
-    // breed (std::string)
     std::string breed = "Beagle";
 
     struct DogCollar
@@ -156,34 +151,24 @@ struct Dog
         float length = 15.0f;
         float width = 0.5f;
 
-        // Actions
         void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
         void remove(bool clipRelease = true);
-        bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);  // returns true if adjustment is successful
+        bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);
     };
 
-    // 3 things it can do:
-    // bark at postman
     void barkAtPostman();
-    // fetch ball
     void fetchBall();
-    // try new collar
-    bool tryNewCollar(DogCollar newCollar); // return whether the new collar fits
+    bool tryNewCollar(DogCollar newCollar);
 
     DogCollar currentCollar;
 };
 
 struct Laptop
 {
-    // brand (std::string)
     std::string brand = "Apple";
-    // model (std::string)
     std::string model = "Macbook";
-    // operating system version (std::string)
     std::string operatingSystemVersion = "Snow Leopard";
-    // memory capacity (int) // if measured in GB
     int memoryCapacity = 16;
-    // number of processor cores (int)
     int numberOfProcessorCores = 4;
     
     struct Battery
@@ -194,188 +179,111 @@ struct Laptop
         float maxChargeCurrent = 2.0f;
         float voltage = 18.0f;
 
-        // Actions
-        bool charge(float chargeToLevel = 100.0f); // returns true if battery finished charging
-        float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge"); // returns percentage of capacity remaining
+        bool charge(float chargeToLevel = 100.0f);
+        float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge");
         void limitChargeCurrent(float inputCurrent, float temperatureLimit = 85.8f);
     };
 
-    // 3 things it can do:
-    // replace battery 
     void replaceBattery(Battery newBattery);
-    // launch program
-    bool launchProgram(const std::string& programName); // returns true if program launches successfully
-    // invoke compiler
-    bool invokeCompiler(); // returns true if compiler is invoked successfully
+    bool launchProgram(const std::string& programName);
+    bool invokeCompiler();
 
     Battery currentBattery;
 };
 
 struct WeatherSatellite
 {
-    // number of solar panels (int)
     int numberOfSolarPanels = 8;
-    // radiation hardening type (std::string)
     std::string radiationHardeningType = "Standard";
-    // attitude (double)
     double attitude = 360.0;
-    // orbital velocity (double)
     double orbitalVelocity = 7.8;
-    // antenna center frequency (float)
     float antennaCenterFrequency = 2.4f;
-    // 3 things it can do:
-    // switch imaging modality 
     void switchImagingModality();
-    // transmit data to ground station
-    int transmitDataToGroundStation(); // returns number of images transmitted
-    // monitor battery charge level
-    float monitorBatteryChargeLevel(); // returns battery charge level
+    int transmitDataToGroundStation();
+    float monitorBatteryChargeLevel();
 };
 
 struct FilmCamera
 {
-    // viewfinder type (std::string)
     std::string viewfinderType = "Waist Level";
-    // lens mount type (std::string)
     std::string lensMountType = "FD";
-    // maximum shutter speed (float)
     float maximumShutterSpeed = 0.001f;
-    // weight (float)
     float weight = 1.2f;
-    // brand (std::string)
     std::string brand = "Canon";
-    // 3 things it can do:
-    // release shutter
     void releaseShutter();
-    // advance film
     void advanceFilm();
-    // engage lightmeter
     void engageLightmeter();
 };
 
 struct SecuritySystem
 {
-    // number of cameras (int)
     int numberOfCameras = 4;
-    // motion sensor sensitivity in meters (float)
     float motionSensorSensitivity = 5.0f;
-    // alarm loudness in dB (float)
     float alarmLoudness = 110.0f;
-    // backup battery capacity in mAh (int)
     int backupBatteryCapacity = 10000;
-    // connectivity type (std::string)
     std::string connectivityType = "WiFi";
-    // 3 things it can do:
-    // detect intrusion
-    bool detectIntrusion(); // returns true if an intrusion is detected
-    // record video
-    int recordVideo(); // returns number of frames recorded
-    // send alert to smartphone
+    bool detectIntrusion();
+    int recordVideo();
     void sendAlertToSmartphone();
 };
 
 struct LightingControl
 {
-    // number of connected lights (int)
     int numberOfConnectedLights = 10;
-    // energy consumption in watts (int)
     int energyConsumption = 500;
-    // colour temperature (std::string)
     std::string colourTemperature = "5000K";
-    // brightness levels (int)
     int brightnessLevels = 10;
-    // motion detection sensitivity (int)
     int motionDetectionSensitivity = 3;
-    // 3 things it can do:
-    // adjust brightness
     void adjustBrightness(int level);
-    // adjust light colour
     void adjustLightColour(const std::string& colour);
-    // detect motion
-    bool detectMotion(); // returns true if motion is detected
+    bool detectMotion();
 };
 
 struct HVACSystem
 {
-    //  thermostat accuracy (float)
     float thermostatAccuracy = 0.1f;
-    //  filter quality (std::string)
     std::string filterQuality = "HEPA";
-    //  energy efficiency rating (std::string)
     std::string energyEfficiencyRating = "A++";
-    //  cooling capacity in BTUs (int)
     int coolingCapacity = 5000;
-    //  heating capacity in BTUs (int)
     int heatingCapacity = 5000;
-    // 3 things it can do:
-    // increase room temperature
     void increaseRoomTemperature(float degrees);
-    // filter indoor air
     void filterIndoorAir();
-    // optimise energy use
     void optimiseEnergyUse();
 };
 
 struct EntertainmentSystem
 {
-    // number of speakers (int)
     int numberOfSpeakers = 5;
-    // screen size (int)
     int screenSize = 55;
-    // supported video format (std::string)
     std::string supportedVideoFormat = "4K UHD";
-    // maximum audio output level (int)
     int maximumAudioOutputLevel = 120;
-    // brand (std::string)
     std::string brand = "Sony";
-    // 3 things it can do:
-    // play video content
     void playVideoContent();
-    // stream audio content
-    float streamAudioContent(); // returns audio data
-    // connect to bluetooth device
-    bool connectToBluetoothDevice(); // returns true if Bluetooth device is connected successfully
+    float streamAudioContent();
+    bool connectToBluetoothDevice();
 };
 
 struct SmartAppliance
 {
-    // wash cycle type (std::string)
     std::string washCycleType = "Cotton";
-    // energy consumption per cycle in kWh (float)
     float energyConsumptionPerCycle = 0.5f;
-    // water usage per cycle in l (float)
     float waterUsagePerCycle = 10.0f;
-    // model (std::string)
     std::string model = "WashMaster 3000";
-    // smart home compatibility (std::string)
     std::string smartHomeCompatibility = "HomeKit";
-    // 3 things it can do:
-    // wash clothes
     void washClothes();
-    // optimise power usage based on load
     void optimisePowerUsageBasedOnLoad();
-    // send alert to homeowners
-    bool sendAlertToHomeowners(); // returns true if alert is sent successfully
+    bool sendAlertToHomeowners();
 };
 
 struct SmartHomeSystem
 {
-    // Security System
     SecuritySystem securitySystem;
-    // Lighting Control
     LightingControl lightingControl;
-    // HVAC System
     HVACSystem hvacSystem;
-    // Entertainment System
     EntertainmentSystem entertainmentSystem;
-    // Smart Appliance
     SmartAppliance smartAppliance;
-    // 3 things it can do:
-    // monitor home temperature
-    float monitorHomeTemperature(); // returns temperature
-    // control lighting
+    float monitorHomeTemperature();
     void controlLighting(const std::string& roomId);
-    // trigger alarm sound
     void triggerAlarmSound();
 };
 
