@@ -414,6 +414,22 @@ struct LightingControl
     bool detectMotion();
 };
 
+void LightingControl::adjustBrightness(int level)
+{
+    std::cout << "brightness adjusted to level " << level << "\n";
+}
+
+void LightingControl::adjustLightColour(const std::string& colour)
+{
+    std::cout << "light colour adjusted to " << colour << "\n";
+}
+
+bool LightingControl::detectMotion()
+{
+    std::cout << "motion detection sensitivity: " << motionDetectionSensitivity << "\n";
+    return true;
+}
+
 struct HVACSystem
 {
     float thermostatAccuracy = 0.1f;
