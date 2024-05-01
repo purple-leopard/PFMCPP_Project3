@@ -274,26 +274,24 @@ struct Laptop
 
 bool Laptop::Battery::charge(float chargeToLevel) 
 {
+    float chargeLevel = 75.0f;
     std::cout << "battery charging to level: " << chargeToLevel << "%\n";
-    return chargeToLevel <= 100.0f;
+    return chargeLevel >= chargeToLevel;
 }
 
 float Laptop::Battery::checkCapacityRemaining(const std::string& fuelGuageAlgorithm) 
 {
-    float capacityRemaining = 0.0f;
+    float capacityRemaining = 1000.0f;
     std::cout << "checking battery capacity remaining using " << fuelGuageAlgorithm << "\n";
-    // run fuelGuage algo, set capacityRemaining
     return capacityRemaining;
 }
 
 void Laptop::Battery::limitChargeCurrent(float inputCurrent, float temperatureLimit) 
 {
     float temperature = 38.0f;
-    // acquire temperature from sensor
     if (inputCurrent > maxChargeCurrent || temperature > temperatureLimit) 
     {
         inputCurrent = maxChargeCurrent;
-        // execute current limiting
         std::cout << "charge current limited to " << maxChargeCurrent << "\n";
     }
 }
