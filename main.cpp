@@ -357,6 +357,21 @@ struct FilmCamera
     void engageLightmeter();
 };
 
+void FilmCamera::releaseShutter()
+{
+    std::cout << "shutter released\n";
+}
+
+void FilmCamera::advanceFilm()
+{
+    std::cout << "film advanced to the next frame\n";
+}
+
+void FilmCamera::engageLightmeter()
+{
+    std::cout << "lightmeter engaged\n";
+}
+
 struct SecuritySystem
 {
     int numberOfCameras = 4;
