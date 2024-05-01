@@ -272,6 +272,50 @@ struct Laptop
     Battery currentBattery;
 };
 
+bool Laptop::Battery::charge(float chargeToLevel) 
+{
+    std::cout << "battery charging to level: " << chargeToLevel << "%\n";
+    return chargeToLevel <= 100.0f;
+}
+
+float Laptop::Battery::checkCapacityRemaining(const std::string& fuelGuageAlgorithm) 
+{
+    float capacityRemaining = 0.0f;
+    std::cout << "checking battery capacity remaining using " << fuelGuageAlgorithm << "\n";
+    // run fuelGuage algo, set capacityRemaining
+    return capacityRemaining;
+}
+
+void Laptop::Battery::limitChargeCurrent(float inputCurrent, float temperatureLimit) 
+{
+    float temperature = 38.0f;
+    // acquire temperature from sensor
+    if (inputCurrent > maxChargeCurrent || temperature > temperatureLimit) 
+    {
+        inputCurrent = maxChargeCurrent;
+        // execute current limiting
+        std::cout << "charge current limited to " << maxChargeCurrent << "\n";
+    }
+}
+
+void Laptop::replaceBattery(Battery newBattery) 
+{
+    currentBattery = newBattery;
+    std::cout << "battery replaced with type: " << newBattery.type << "\n";
+}
+
+bool Laptop::launchProgram(const std::string& programName) 
+{
+    std::cout << "launching program: " << programName << "\n";
+    return true;
+}
+
+bool Laptop::invokeCompiler() 
+{
+    std::cout << "compiler invoked" << "\n";
+    return true;
+}
+
 struct WeatherSatellite
 {
     int numberOfSolarPanels = 8;
