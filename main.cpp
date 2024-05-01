@@ -384,6 +384,24 @@ struct SecuritySystem
     void sendAlertToSmartphone();
 };
 
+bool SecuritySystem::detectIntrusion()
+{
+    std::cout << "intrusion detected with sensitivity level: " << motionSensorSensitivity << "\n";
+    return true; 
+}
+
+int SecuritySystem::recordVideo()
+{
+    int numberOfFramesRecorded = 5;
+    std::cout << "recording\n";
+    return numberOfFramesRecorded;
+}
+
+void SecuritySystem::sendAlertToSmartphone()
+{
+    std::cout << "alert sent to smartphone over " << connectivityType << "\n";
+}
+
 struct LightingControl
 {
     int numberOfConnectedLights = 10;
