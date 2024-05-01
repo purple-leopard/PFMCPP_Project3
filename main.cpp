@@ -328,6 +328,26 @@ struct WeatherSatellite
     float monitorBatteryChargeLevel();
 };
 
+void WeatherSatellite::switchImagingModality()
+{
+    std::cout << "switching imaging modality from visible to infrared\n";
+}
+
+int WeatherSatellite::transmitDataToGroundStation()
+{
+    int dataTransmitted = 500;
+    std::cout << "transmitting " << dataTransmitted << " MB of data to ground station\n";
+    return dataTransmitted;
+}
+
+float WeatherSatellite::monitorBatteryChargeLevel()
+{
+    float chargeLevel = 75.0f;
+    std::cout << "current battery charge level is " << chargeLevel << "%\n";
+    return chargeLevel;
+}
+
+
 struct FilmCamera
 {
     std::string viewfinderType = "Waist Level";
