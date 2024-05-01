@@ -204,6 +204,46 @@ struct Dog
     DogCollar currentCollar;
 };
 
+void Dog::DogCollar::attachLeash(const std::string& leashType, bool isRetractable)
+{
+    std::cout << "leash type: " << leashType << ", retractable: " << isRetractable << "\n";
+}
+
+void Dog::DogCollar::remove(bool clipRelease)
+{
+    std::cout << (clipRelease ? "clip released\n" : "clip not released\n");
+}
+
+bool Dog::DogCollar::adjustFit(float newSize, float minSize, float maxSize) 
+{
+    if (newSize >= minSize && newSize <= maxSize) 
+    {
+        length = newSize;
+        return true;
+    }
+    return false;
+}
+
+void Dog::barkAtPostman() 
+{
+    std::cout << "bark\n";
+}
+
+void Dog::fetchBall()
+{
+    std::cout << "fetch\n";
+}
+
+bool Dog::tryNewCollar(DogCollar newCollar) 
+{
+    if (newCollar.length >= 10.0f && newCollar.length <= 20.0f) 
+    {
+        currentCollar = newCollar;
+        return true;
+    }
+    return false;
+}
+
 struct Laptop
 {
     std::string brand = "Apple";
