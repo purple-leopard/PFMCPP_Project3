@@ -140,7 +140,7 @@ int Person::Foot::stepSize()
 
 void Person::run(int howFast, bool startWithLeftFoot)
 {
-    if(startWithLeftFoot)
+    if (startWithLeftFoot)
     {
         leftFoot.stepForward();
         rightFoot.stepForward();
