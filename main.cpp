@@ -345,7 +345,6 @@ float WeatherSatellite::monitorBatteryChargeLevel()
     return chargeLevel;
 }
 
-
 struct FilmCamera
 {
     std::string viewfinderType = "Waist Level";
