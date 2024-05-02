@@ -442,6 +442,21 @@ struct HVACSystem
     void optimiseEnergyUse();
 };
 
+void HVACSystem::increaseRoomTemperature(float degrees)
+{
+    std::cout << "room temperature increased to " << degrees << " degrees\n";
+}
+
+void HVACSystem::filterIndoorAir()
+{
+    std::cout << "indoor air filtered using " << filterQuality << " filter\n";
+}
+
+void HVACSystem::optimiseEnergyUse()
+{
+    std::cout << "energy use optimised for efficiency rating: " << energyEfficiencyRating << "\n";
+}
+
 struct EntertainmentSystem
 {
     int numberOfSpeakers = 5;
