@@ -469,6 +469,24 @@ struct EntertainmentSystem
     bool connectToBluetoothDevice();
 };
 
+void EntertainmentSystem::playVideoContent()
+{
+    std::cout << "playing video\n";
+}
+
+float EntertainmentSystem::streamAudioContent()
+{
+    float sample = 0.78f;
+    std::cout << "streaming audio\n";
+    return sample;
+}
+
+bool EntertainmentSystem::connectToBluetoothDevice()
+{
+    std::cout << "bluetooth pairing complete\n";
+    return true;
+}
+
 struct SmartAppliance
 {
     std::string washCycleType = "Cotton";
