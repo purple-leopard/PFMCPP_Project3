@@ -540,7 +540,7 @@ float SmartHomeSystem::monitorHomeTemperature()
 
 void SmartHomeSystem::controlLighting(const std::string &roomId)
 {
-    std::cout << "decrease light intensity to match ambient light in room: " << roomId << "\n";
+    std::cout << "decrease light intensity based on ambient light in room: " << roomId << "\n";
 }
 
 void SmartHomeSystem::triggerAlarmSound()
