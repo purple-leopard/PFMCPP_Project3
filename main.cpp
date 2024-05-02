@@ -499,6 +499,22 @@ struct SmartAppliance
     bool sendAlertToHomeowners();
 };
 
+void SmartAppliance::washClothes()
+{
+    std::cout << model << " wash in progress\n";
+}
+
+void SmartAppliance::optimisePowerUsageBasedOnLoad()
+{
+     std::cout << "optimising power usage for " << washCycleType << " cycle\n";   
+}
+
+bool SmartAppliance::sendAlertToHomeowners()
+{
+    std::cout << "alert sent successfuly\n";
+    return true;
+}
+
 struct SmartHomeSystem
 {
     SecuritySystem securitySystem;
