@@ -527,6 +527,23 @@ struct SmartHomeSystem
     void triggerAlarmSound();
 };
 
+float SmartHomeSystem::monitorHomeTemperature()
+{
+    float currentTemperature = 19.8f;
+    std::cout << "current home temperature: " << currentTemperature << " degrees celsius\n";
+    return currentTemperature;
+}
+
+void SmartHomeSystem::controlLighting(const std::string &roomId)
+{
+    std::cout << "decrease light intensity to match ambient light in room: " << roomId << "\n";
+}
+
+void SmartHomeSystem::triggerAlarmSound()
+{
+    std::cout << "triggering alarm sound\n";
+}
+
 int main()
 {
     std::cout << "good to go!" << std::endl;
