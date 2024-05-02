@@ -337,9 +337,9 @@ void WeatherSatellite::switchImagingModality()
 
 int WeatherSatellite::transmitDataToGroundStation()
 {
-    int dataTransmitted = 500;
-    std::cout << "transmitting " << dataTransmitted << " MB of data to ground station\n";
-    return dataTransmitted;
+    int numberOfImagesTransmitted = 500;
+    std::cout << "transmitted " << numberOfImagesTransmitted << " images\n";
+    return numberOfImagesTransmitted;
 }
 
 float WeatherSatellite::monitorBatteryChargeLevel()
