@@ -219,8 +219,10 @@ bool Dog::DogCollar::adjustFit(float newSize, float minSize, float maxSize)
     if (newSize >= minSize && newSize <= maxSize) 
     {
         length = newSize;
+        std::cout << "adjustment successful\n";
         return true;
     }
+    std::cout << "adjustment unsuccessful\n";
     return false;
 }
 
@@ -239,8 +241,10 @@ bool Dog::tryNewCollar(DogCollar newCollar)
     if (newCollar.length >= 10.0f && newCollar.length <= 20.0f) 
     {
         currentCollar = newCollar;
+        std::cout << "collar fits, replace original collar with new collar\n";
         return true;
     }
+    std::cout << "collar doesn't fit, keep original collar\n";
     return false;
 }
 
