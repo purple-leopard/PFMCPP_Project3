@@ -430,7 +430,7 @@ void LightingControl::adjustLightColour(const std::string& colour)
 
 bool LightingControl::detectMotion()
 {
-    std::cout << "motion detection sensitivity: " << motionDetectionSensitivity << "\n";
+    std::cout << "motion detected with sensitivity: " << motionDetectionSensitivity << "\n";
     return true;
 }
 
