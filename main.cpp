@@ -568,6 +568,12 @@ int main()
     megaLight.adjustBrightness(42);
     megaLight.adjustLightColour("violet");
     megaLight.detectMotion();
+
+    HVACSystem megaHVAC;
+
+    megaHVAC.increaseRoomTemperature(11.3f);
+    megaHVAC.filterIndoorAir();
+    megaHVAC.optimiseEnergyUse();
  
     std::cout << "good to go!" << std::endl;
 }
