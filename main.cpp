@@ -79,6 +79,7 @@ paste your code below
 
 struct Dog
 {
+    Dog();
     float weight = 10.0f;
     float height = 0.5f;
     int ageInYears = 3;
@@ -87,6 +88,7 @@ struct Dog
 
     struct DogCollar
     {
+        DogCollar();
         std::string material = "leather";
         std::string color = "red";
         std::string dogName = "BUSTER";
@@ -104,6 +106,16 @@ struct Dog
 
     DogCollar currentCollar;
 };
+
+Dog::Dog()
+{
+    std::cout << "Dog being constructed\n";
+}
+
+Dog::DogCollar::DogCollar()
+{
+    std::cout << "DogCollar being constructed\n";
+}
 
 void Dog::DogCollar::attachLeash(const std::string& leashType, bool isRetractable)
 {
