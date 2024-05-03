@@ -534,6 +534,16 @@ int main()
     jackRussel.currentCollar.attachLeash("gangster", true);
     jackRussel.currentCollar.adjustFit(15, 10.0f, 20.0f);
     jackRussel.currentCollar.remove(true);
+
+    Laptop::Battery replacementBattery;
+    Laptop laptop;
+
+    laptop.replaceBattery(replacementBattery);
+    laptop.launchProgram("Logic");
+    laptop.invokeCompiler();
+    laptop.currentBattery.charge(90.0f);
+    laptop.currentBattery.checkCapacityRemaining("FastGauge");
+    laptop.currentBattery.limitChargeCurrent(2.5f, 90.0f);
  
     std::cout << "good to go!" << std::endl;
 }
