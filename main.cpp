@@ -488,6 +488,7 @@ bool SmartAppliance::sendAlertToHomeowners()
 
 struct SmartHomeSystem
 {
+    SmartHomeSystem();
     SecuritySystem securitySystem;
     LightingControl lightingControl;
     HVACSystem hvacSystem;
@@ -497,6 +498,11 @@ struct SmartHomeSystem
     void controlLighting(const std::string& roomId);
     void triggerAlarmSound();
 };
+
+SmartHomeSystem::SmartHomeSystem()
+{
+    std::cout << "SmartHomeSystem being constructed\n";
+}
 
 float SmartHomeSystem::monitorHomeTemperature()
 {
