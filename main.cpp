@@ -245,6 +245,7 @@ bool Laptop::invokeCompiler()
 
 struct WeatherSatellite
 {
+    WeatherSatellite();
     int numberOfSolarPanels = 8;
     std::string radiationHardeningType = "Standard";
     double attitude = 360.0;
@@ -254,6 +255,11 @@ struct WeatherSatellite
     int transmitDataToGroundStation();
     float monitorBatteryChargeLevel();
 };
+
+WeatherSatellite::WeatherSatellite()
+{
+    std::cout << "WeatherSatellite being constructed\n";
+}
 
 void WeatherSatellite::switchImagingModality()
 {
