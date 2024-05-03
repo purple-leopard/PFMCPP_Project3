@@ -418,6 +418,7 @@ void HVACSystem::optimiseEnergyUse()
 
 struct EntertainmentSystem
 {
+    EntertainmentSystem();
     int numberOfSpeakers = 5;
     int screenSize = 55;
     std::string supportedVideoFormat = "4K UHD";
@@ -427,6 +428,11 @@ struct EntertainmentSystem
     float streamAudioContent();
     bool connectToBluetoothDevice();
 };
+
+EntertainmentSystem::EntertainmentSystem()
+{
+    std::cout << "EntertainmentSystem being constructed\n";
+}
 
 void EntertainmentSystem::playVideoContent()
 {
