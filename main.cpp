@@ -562,6 +562,12 @@ int main()
     megaAlarm.detectIntrusion();
     megaAlarm.recordVideo();
     megaAlarm.sendAlertToSmartphone();
+
+    LightingControl megaLight;
+
+    megaLight.adjustBrightness(42);
+    megaLight.adjustLightColour("violet");
+    megaLight.detectMotion();
  
     std::cout << "good to go!" << std::endl;
 }
