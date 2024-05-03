@@ -556,6 +556,12 @@ int main()
     canonA1.releaseShutter();
     canonA1.advanceFilm();
     canonA1.engageLightmeter();
+
+    SecuritySystem megaAlarm;
+
+    megaAlarm.detectIntrusion();
+    megaAlarm.recordVideo();
+    megaAlarm.sendAlertToSmartphone();
  
     std::cout << "good to go!" << std::endl;
 }
