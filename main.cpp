@@ -531,7 +531,7 @@ int main()
     jackRussel.barkAtPostman();
     jackRussel.fetchBall();
     jackRussel.tryNewCollar(pinkCollar);
-    jackRussel.currentCollar.attachLeash("gangster", true); // currentCollar == pinkCollar
+    jackRussel.currentCollar.attachLeash("gangster", true);
     jackRussel.currentCollar.adjustFit(15, 10.0f, 20.0f);
     jackRussel.currentCollar.remove(true);
  
