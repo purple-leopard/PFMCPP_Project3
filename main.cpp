@@ -574,6 +574,12 @@ int main()
     megaHVAC.increaseRoomTemperature(11.3f);
     megaHVAC.filterIndoorAir();
     megaHVAC.optimiseEnergyUse();
+
+    EntertainmentSystem boseWholeHome;
+
+    boseWholeHome.playVideoContent();
+    boseWholeHome.streamAudioContent();
+    boseWholeHome.connectToBluetoothDevice();
  
     std::cout << "good to go!" << std::endl;
 }
