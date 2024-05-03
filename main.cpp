@@ -351,6 +351,7 @@ void SecuritySystem::sendAlertToSmartphone()
 
 struct LightingControl
 {
+    LightingControl();
     int numberOfConnectedLights = 10;
     int energyConsumption = 500;
     std::string colourTemperature = "5000K";
@@ -360,6 +361,11 @@ struct LightingControl
     void adjustLightColour(const std::string& colour);
     bool detectMotion();
 };
+
+LightingControl::LightingControl()
+{
+    std::cout << "LightingControl being constructed\n";
+}
 
 void LightingControl::adjustBrightness(int level)
 {
