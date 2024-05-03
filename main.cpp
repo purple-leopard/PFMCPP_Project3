@@ -580,6 +580,12 @@ int main()
     boseWholeHome.playVideoContent();
     boseWholeHome.streamAudioContent();
     boseWholeHome.connectToBluetoothDevice();
+
+    SmartAppliance whirlpool3000;
+
+    whirlpool3000.washClothes();
+    whirlpool3000.optimisePowerUsageBasedOnLoad();
+    whirlpool3000.sendAlertToHomeowners();
  
     std::cout << "good to go!" << std::endl;
 }
