@@ -315,6 +315,7 @@ void FilmCamera::engageLightmeter()
 
 struct SecuritySystem
 {
+    SecuritySystem();
     int numberOfCameras = 4;
     float motionSensorSensitivity = 5.0f;
     float alarmLoudness = 110.0f;
@@ -324,6 +325,11 @@ struct SecuritySystem
     int recordVideo();
     void sendAlertToSmartphone();
 };
+
+SecuritySystem::SecuritySystem()
+{
+    std::cout << "SecuritySystem being constructed\n";
+}
 
 bool SecuritySystem::detectIntrusion()
 {
