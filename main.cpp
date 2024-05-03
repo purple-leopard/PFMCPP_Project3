@@ -525,8 +525,8 @@ int main()
 {
     Example::main(); //do not delete this line
 
-    Dog::DogCollar pinkCollar;
     Dog jackRussel;
+    Dog::DogCollar pinkCollar;
     
     jackRussel.barkAtPostman();
     jackRussel.fetchBall();
@@ -535,8 +535,8 @@ int main()
     jackRussel.currentCollar.adjustFit(15, 10.0f, 20.0f);
     jackRussel.currentCollar.remove(true);
 
-    Laptop::Battery replacementBattery;
     Laptop laptop;
+    Laptop::Battery replacementBattery;
 
     laptop.replaceBattery(replacementBattery);
     laptop.launchProgram("Logic");
