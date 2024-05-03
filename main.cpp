@@ -282,6 +282,7 @@ float WeatherSatellite::monitorBatteryChargeLevel()
 
 struct FilmCamera
 {
+    FilmCamera();
     std::string viewfinderType = "Waist Level";
     std::string lensMountType = "FD";
     float maximumShutterSpeed = 0.001f;
@@ -291,6 +292,11 @@ struct FilmCamera
     void advanceFilm();
     void engageLightmeter();
 };
+
+FilmCamera::FilmCamera()
+{
+    std::cout << "FilmCamera being constructed\n";
+}
 
 void FilmCamera::releaseShutter()
 {
