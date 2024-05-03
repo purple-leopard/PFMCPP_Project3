@@ -592,6 +592,19 @@ int main()
     gigaHome.monitorHomeTemperature();
     gigaHome.controlLighting("GAMES_ROOM");
     gigaHome.triggerAlarmSound();
- 
+
+    std::cout << "jack russel's weight: " << jackRussel.weight << " kg" << "\n";
+    std::cout << "jack russel's collar material: " << jackRussel.currentCollar.material << "\n";
+    std::cout << "laptop brand: " << laptop.brand << "\n";
+    std::cout << "laptop's battery's charge capacity: " << laptop.currentBattery.capacity << " mAh\n";
+    std::cout << "sputnik's orbital velocity is: " << sputnik.orbitalVelocity << " ms^-1\n";
+    std::cout << "Canon A1's viewfinder type: " << canonA1.viewfinderType << " \n";
+    std::cout << "mega alarm loudness: " << megaAlarm.alarmLoudness << " dB\n";
+    std::cout << "mega light has " << megaLight.numberOfConnectedLights << " connected lights\n";
+    std::cout << "mega HVAC has a " << megaHVAC.filterQuality << " filter\n";
+    std::cout << "Bose entertainment system supports " << boseWholeHome.supportedVideoFormat << "\n";
+    std::cout << "Whirlpool 300 uses " << whirlpool3000.waterUsagePerCycle << " litres of water per cycle\n";
+    std::cout << "giga home system smart appliance compatibility type is " << gigaHome.smartAppliance.smartHomeCompatibility << '\n';
+
     std::cout << "good to go!" << std::endl;
 }
