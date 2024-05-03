@@ -544,6 +544,12 @@ int main()
     laptop.currentBattery.charge(90.0f);
     laptop.currentBattery.checkCapacityRemaining("FastGauge");
     laptop.currentBattery.limitChargeCurrent(2.5f, 90.0f);
+
+    WeatherSatellite sputnik;
+
+    sputnik.switchImagingModality();
+    sputnik.transmitDataToGroundStation();
+    sputnik.monitorBatteryChargeLevel();
  
     std::cout << "good to go!" << std::endl;
 }
