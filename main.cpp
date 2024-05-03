@@ -550,6 +550,12 @@ int main()
     sputnik.switchImagingModality();
     sputnik.transmitDataToGroundStation();
     sputnik.monitorBatteryChargeLevel();
+
+    FilmCamera canonA1;
+
+    canonA1.releaseShutter();
+    canonA1.advanceFilm();
+    canonA1.engageLightmeter();
  
     std::cout << "good to go!" << std::endl;
 }
