@@ -385,6 +385,7 @@ bool LightingControl::detectMotion()
 
 struct HVACSystem
 {
+    HVACSystem();
     float thermostatAccuracy = 0.1f;
     std::string filterQuality = "HEPA";
     std::string energyEfficiencyRating = "A++";
@@ -394,6 +395,11 @@ struct HVACSystem
     void filterIndoorAir();
     void optimiseEnergyUse();
 };
+
+HVACSystem::HVACSystem()
+{
+    std::cout << "HVACSystem being constructed\n";
+}
 
 void HVACSystem::increaseRoomTemperature(float degrees)
 {
