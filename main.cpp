@@ -107,11 +107,52 @@ struct CarWash
     you should be able to deduce the return type of those functions based on their usage in Person::run()
     You'll need to insert the Person struct from the video in the space below.
  */
+struct Person
+{
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTravelled;
 
+    struct Foot
+    {
+        void stepForward();
+        int stepSize();
+    };
 
+    void run(int howFast, bool startWithLeftFoot);
 
+    Foot leftFoot;
+    Foot rightFoot;
+};
 
+void Person::Foot::stepForward()
+{
+    std::cout << "step\n";
+}
 
+int Person::Foot::stepSize()
+{
+    return 1;
+}
+
+void Person::run(int howFast, bool startWithLeftFoot)
+{
+    if (startWithLeftFoot)
+    {
+        leftFoot.stepForward();
+        rightFoot.stepForward();
+    }
+    else
+    {
+        rightFoot.stepForward();
+        leftFoot.stepForward();
+    }
+
+    distanceTravelled += howFast * (leftFoot.stepSize() + rightFoot.stepSize());
+}
  /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
     If you have 'unused parameter' warnings, you aren't using one of your function parameters in your implementation.
@@ -137,15 +178,10 @@ paste your code below
 
 struct Dog
 {
-    // weight (float)
     float weight = 10.0f;
-    // height (float)
     float height = 0.5f;
-    // age in years (int)
     int ageInYears = 3;
-    // fur colour (std::string)
     std::string furColour = "brown";
-    // breed (std::string)
     std::string breed = "Beagle";
 
     struct DogCollar
@@ -156,34 +192,68 @@ struct Dog
         float length = 15.0f;
         float width = 0.5f;
 
-        // Actions
         void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
         void remove(bool clipRelease = true);
-        bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);  // returns true if adjustment is successful
+        bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);
     };
 
-    // 3 things it can do:
-    // bark at postman
     void barkAtPostman();
-    // fetch ball
     void fetchBall();
-    // try new collar
-    bool tryNewCollar(DogCollar newCollar); // return whether the new collar fits
+    bool tryNewCollar(DogCollar newCollar);
 
     DogCollar currentCollar;
 };
 
+void Dog::DogCollar::attachLeash(const std::string& leashType, bool isRetractable)
+{
+    std::cout << "leash type: " << leashType << ", retractable: " << isRetractable << "\n";
+}
+
+void Dog::DogCollar::remove(bool clipRelease)
+{
+    std::cout << (clipRelease ? "clip released\n" : "clip not released\n");
+}
+
+bool Dog::DogCollar::adjustFit(float newSize, float minSize, float maxSize) 
+{
+    if (newSize >= minSize && newSize <= maxSize) 
+    {
+        length = newSize;
+        std::cout << "adjustment successful\n";
+        return true;
+    }
+    std::cout << "adjustment unsuccessful\n";
+    return false;
+}
+
+void Dog::barkAtPostman() 
+{
+    std::cout << "bark\n";
+}
+
+void Dog::fetchBall()
+{
+    std::cout << "fetch\n";
+}
+
+bool Dog::tryNewCollar(DogCollar newCollar) 
+{
+    if (newCollar.length >= 10.0f && newCollar.length <= 20.0f) 
+    {
+        currentCollar = newCollar;
+        std::cout << "collar fits, replace original collar with new collar\n";
+        return true;
+    }
+    std::cout << "collar doesn't fit, keep original collar\n";
+    return false;
+}
+
 struct Laptop
 {
-    // brand (std::string)
     std::string brand = "Apple";
-    // model (std::string)
     std::string model = "Macbook";
-    // operating system version (std::string)
     std::string operatingSystemVersion = "Snow Leopard";
-    // memory capacity (int) // if measured in GB
     int memoryCapacity = 16;
-    // number of processor cores (int)
     int numberOfProcessorCores = 4;
     
     struct Battery
@@ -194,190 +264,289 @@ struct Laptop
         float maxChargeCurrent = 2.0f;
         float voltage = 18.0f;
 
-        // Actions
-        bool charge(float chargeToLevel = 100.0f); // returns true if battery finished charging
-        float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge"); // returns percentage of capacity remaining
+        bool charge(float chargeToLevel = 100.0f);
+        float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge");
         void limitChargeCurrent(float inputCurrent, float temperatureLimit = 85.8f);
     };
 
-    // 3 things it can do:
-    // replace battery 
     void replaceBattery(Battery newBattery);
-    // launch program
-    bool launchProgram(const std::string& programName); // returns true if program launches successfully
-    // invoke compiler
-    bool invokeCompiler(); // returns true if compiler is invoked successfully
+    bool launchProgram(const std::string& programName);
+    bool invokeCompiler();
 
     Battery currentBattery;
 };
 
+bool Laptop::Battery::charge(float chargeToLevel) 
+{
+    float chargeLevel = 75.0f;
+    std::cout << "battery charging to level: " << chargeToLevel << "%\n";
+    return chargeLevel >= chargeToLevel;
+}
+
+float Laptop::Battery::checkCapacityRemaining(const std::string& fuelGuageAlgorithm) 
+{
+    float capacityRemaining = 1000.0f;
+    std::cout << "checking battery capacity remaining using " << fuelGuageAlgorithm << "\n";
+    return capacityRemaining;
+}
+
+void Laptop::Battery::limitChargeCurrent(float inputCurrent, float temperatureLimit) 
+{
+    float temperature = 38.0f;
+    if (inputCurrent > maxChargeCurrent || temperature > temperatureLimit) 
+    {
+        inputCurrent = maxChargeCurrent;
+        std::cout << "charge current limited to " << maxChargeCurrent << "\n";
+    }
+}
+
+void Laptop::replaceBattery(Battery newBattery) 
+{
+    currentBattery = newBattery;
+    std::cout << "battery replaced with type: " << newBattery.type << "\n";
+}
+
+bool Laptop::launchProgram(const std::string& programName) 
+{
+    std::cout << "launching program: " << programName << "\n";
+    return true;
+}
+
+bool Laptop::invokeCompiler() 
+{
+    std::cout << "compiler invoked" << "\n";
+    return true;
+}
+
 struct WeatherSatellite
 {
-    // number of solar panels (int)
     int numberOfSolarPanels = 8;
-    // radiation hardening type (std::string)
     std::string radiationHardeningType = "Standard";
-    // attitude (double)
     double attitude = 360.0;
-    // orbital velocity (double)
     double orbitalVelocity = 7.8;
-    // antenna center frequency (float)
     float antennaCenterFrequency = 2.4f;
-    // 3 things it can do:
-    // switch imaging modality 
     void switchImagingModality();
-    // transmit data to ground station
-    int transmitDataToGroundStation(); // returns number of images transmitted
-    // monitor battery charge level
-    float monitorBatteryChargeLevel(); // returns battery charge level
+    int transmitDataToGroundStation();
+    float monitorBatteryChargeLevel();
 };
+
+void WeatherSatellite::switchImagingModality()
+{
+    std::cout << "switching imaging modality from visible to infrared\n";
+}
+
+int WeatherSatellite::transmitDataToGroundStation()
+{
+    int numberOfImagesTransmitted = 500;
+    std::cout << "transmitted " << numberOfImagesTransmitted << " images\n";
+    return numberOfImagesTransmitted;
+}
+
+float WeatherSatellite::monitorBatteryChargeLevel()
+{
+    float chargeLevel = 75.0f;
+    std::cout << "current battery charge level is " << chargeLevel << "%\n";
+    return chargeLevel;
+}
 
 struct FilmCamera
 {
-    // viewfinder type (std::string)
     std::string viewfinderType = "Waist Level";
-    // lens mount type (std::string)
     std::string lensMountType = "FD";
-    // maximum shutter speed (float)
     float maximumShutterSpeed = 0.001f;
-    // weight (float)
     float weight = 1.2f;
-    // brand (std::string)
     std::string brand = "Canon";
-    // 3 things it can do:
-    // release shutter
     void releaseShutter();
-    // advance film
     void advanceFilm();
-    // engage lightmeter
     void engageLightmeter();
 };
 
+void FilmCamera::releaseShutter()
+{
+    std::cout << "shutter released\n";
+}
+
+void FilmCamera::advanceFilm()
+{
+    std::cout << "film advanced to the next frame\n";
+}
+
+void FilmCamera::engageLightmeter()
+{
+    std::cout << "lightmeter engaged\n";
+}
+
 struct SecuritySystem
 {
-    // number of cameras (int)
     int numberOfCameras = 4;
-    // motion sensor sensitivity in meters (float)
     float motionSensorSensitivity = 5.0f;
-    // alarm loudness in dB (float)
     float alarmLoudness = 110.0f;
-    // backup battery capacity in mAh (int)
     int backupBatteryCapacity = 10000;
-    // connectivity type (std::string)
     std::string connectivityType = "WiFi";
-    // 3 things it can do:
-    // detect intrusion
-    bool detectIntrusion(); // returns true if an intrusion is detected
-    // record video
-    int recordVideo(); // returns number of frames recorded
-    // send alert to smartphone
+    bool detectIntrusion();
+    int recordVideo();
     void sendAlertToSmartphone();
 };
 
+bool SecuritySystem::detectIntrusion()
+{
+    std::cout << "intrusion detected with sensitivity level: " << motionSensorSensitivity << "\n";
+    return true; 
+}
+
+int SecuritySystem::recordVideo()
+{
+    int numberOfFramesRecorded = 5;
+    std::cout << "recording\n";
+    return numberOfFramesRecorded;
+}
+
+void SecuritySystem::sendAlertToSmartphone()
+{
+    std::cout << "alert sent to smartphone over " << connectivityType << "\n";
+}
+
 struct LightingControl
 {
-    // number of connected lights (int)
     int numberOfConnectedLights = 10;
-    // energy consumption in watts (int)
     int energyConsumption = 500;
-    // colour temperature (std::string)
     std::string colourTemperature = "5000K";
-    // brightness levels (int)
     int brightnessLevels = 10;
-    // motion detection sensitivity (int)
     int motionDetectionSensitivity = 3;
-    // 3 things it can do:
-    // adjust brightness
     void adjustBrightness(int level);
-    // adjust light colour
     void adjustLightColour(const std::string& colour);
-    // detect motion
-    bool detectMotion(); // returns true if motion is detected
+    bool detectMotion();
 };
+
+void LightingControl::adjustBrightness(int level)
+{
+    std::cout << "brightness adjusted to level " << level << "\n";
+}
+
+void LightingControl::adjustLightColour(const std::string& colour)
+{
+    std::cout << "light colour adjusted to " << colour << "\n";
+}
+
+bool LightingControl::detectMotion()
+{
+    std::cout << "motion detected with sensitivity: " << motionDetectionSensitivity << "\n";
+    return true;
+}
 
 struct HVACSystem
 {
-    //  thermostat accuracy (float)
     float thermostatAccuracy = 0.1f;
-    //  filter quality (std::string)
     std::string filterQuality = "HEPA";
-    //  energy efficiency rating (std::string)
     std::string energyEfficiencyRating = "A++";
-    //  cooling capacity in BTUs (int)
     int coolingCapacity = 5000;
-    //  heating capacity in BTUs (int)
     int heatingCapacity = 5000;
-    // 3 things it can do:
-    // increase room temperature
     void increaseRoomTemperature(float degrees);
-    // filter indoor air
     void filterIndoorAir();
-    // optimise energy use
     void optimiseEnergyUse();
 };
 
+void HVACSystem::increaseRoomTemperature(float degrees)
+{
+    std::cout << "room temperature increased to " << degrees << " degrees\n";
+}
+
+void HVACSystem::filterIndoorAir()
+{
+    std::cout << "indoor air filtered using " << filterQuality << " filter\n";
+}
+
+void HVACSystem::optimiseEnergyUse()
+{
+    std::cout << "energy use optimised for efficiency rating: " << energyEfficiencyRating << "\n";
+}
+
 struct EntertainmentSystem
 {
-    // number of speakers (int)
     int numberOfSpeakers = 5;
-    // screen size (int)
     int screenSize = 55;
-    // supported video format (std::string)
     std::string supportedVideoFormat = "4K UHD";
-    // maximum audio output level (int)
     int maximumAudioOutputLevel = 120;
-    // brand (std::string)
     std::string brand = "Sony";
-    // 3 things it can do:
-    // play video content
     void playVideoContent();
-    // stream audio content
-    float streamAudioContent(); // returns audio data
-    // connect to bluetooth device
-    bool connectToBluetoothDevice(); // returns true if Bluetooth device is connected successfully
+    float streamAudioContent();
+    bool connectToBluetoothDevice();
 };
+
+void EntertainmentSystem::playVideoContent()
+{
+    std::cout << "playing video\n";
+}
+
+float EntertainmentSystem::streamAudioContent()
+{
+    float sample = 0.78f;
+    std::cout << "streaming audio\n";
+    return sample;
+}
+
+bool EntertainmentSystem::connectToBluetoothDevice()
+{
+    std::cout << "bluetooth pairing complete\n";
+    return true;
+}
 
 struct SmartAppliance
 {
-    // wash cycle type (std::string)
     std::string washCycleType = "Cotton";
-    // energy consumption per cycle in kWh (float)
     float energyConsumptionPerCycle = 0.5f;
-    // water usage per cycle in l (float)
     float waterUsagePerCycle = 10.0f;
-    // model (std::string)
     std::string model = "WashMaster 3000";
-    // smart home compatibility (std::string)
     std::string smartHomeCompatibility = "HomeKit";
-    // 3 things it can do:
-    // wash clothes
     void washClothes();
-    // optimise power usage based on load
     void optimisePowerUsageBasedOnLoad();
-    // send alert to homeowners
-    bool sendAlertToHomeowners(); // returns true if alert is sent successfully
+    bool sendAlertToHomeowners();
 };
+
+void SmartAppliance::washClothes()
+{
+    std::cout << model << " wash in progress\n";
+}
+
+void SmartAppliance::optimisePowerUsageBasedOnLoad()
+{
+     std::cout << "optimising power usage for " << washCycleType << " cycle\n";   
+}
+
+bool SmartAppliance::sendAlertToHomeowners()
+{
+    std::cout << "alert sent successfuly\n";
+    return true;
+}
 
 struct SmartHomeSystem
 {
-    // Security System
     SecuritySystem securitySystem;
-    // Lighting Control
     LightingControl lightingControl;
-    // HVAC System
     HVACSystem hvacSystem;
-    // Entertainment System
     EntertainmentSystem entertainmentSystem;
-    // Smart Appliance
     SmartAppliance smartAppliance;
-    // 3 things it can do:
-    // monitor home temperature
-    float monitorHomeTemperature(); // returns temperature
-    // control lighting
+    float monitorHomeTemperature();
     void controlLighting(const std::string& roomId);
-    // trigger alarm sound
     void triggerAlarmSound();
 };
+
+float SmartHomeSystem::monitorHomeTemperature()
+{
+    float currentTemperature = 19.8f;
+    std::cout << "current home temperature: " << currentTemperature << " degrees celsius\n";
+    return currentTemperature;
+}
+
+void SmartHomeSystem::controlLighting(const std::string &roomId)
+{
+    std::cout << "decrease light intensity based on ambient light in room: " << roomId << "\n";
+}
+
+void SmartHomeSystem::triggerAlarmSound()
+{
+    std::cout << "triggering alarm sound\n";
+}
 
 int main()
 {
