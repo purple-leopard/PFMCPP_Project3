@@ -163,6 +163,7 @@ bool Dog::tryNewCollar(DogCollar newCollar)
 
 struct Laptop
 {
+    Laptop();
     std::string brand = "Apple";
     std::string model = "Macbook";
     std::string operatingSystemVersion = "Snow Leopard";
@@ -171,6 +172,7 @@ struct Laptop
     
     struct Battery
     {
+        Battery();
         std::string type = "Li-ion";
         float capacity = 5000.0f;
         int chargeCycles = 1000;
@@ -188,6 +190,16 @@ struct Laptop
 
     Battery currentBattery;
 };
+
+Laptop::Laptop()
+{
+    std::cout << "Laptop being constructed\n";
+}
+
+Laptop::Battery::Battery()
+{
+    std::cout << "Battery being constructed\n";
+}
 
 bool Laptop::Battery::charge(float chargeToLevel) 
 {
