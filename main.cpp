@@ -586,6 +586,12 @@ int main()
     whirlpool3000.washClothes();
     whirlpool3000.optimisePowerUsageBasedOnLoad();
     whirlpool3000.sendAlertToHomeowners();
+
+    SmartHomeSystem gigaHome;
+
+    gigaHome.monitorHomeTemperature();
+    gigaHome.controlLighting("GAMES_ROOM");
+    gigaHome.triggerAlarmSound();
  
     std::cout << "good to go!" << std::endl;
 }
