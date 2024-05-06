@@ -79,6 +79,7 @@ paste your code below
 
 struct Dog
 {
+    Dog();
     float weight = 10.0f;
     float height = 0.5f;
     int ageInYears = 3;
@@ -87,6 +88,7 @@ struct Dog
 
     struct DogCollar
     {
+        DogCollar();
         std::string material = "leather";
         std::string color = "red";
         std::string dogName = "BUSTER";
@@ -104,6 +106,16 @@ struct Dog
 
     DogCollar currentCollar;
 };
+
+Dog::Dog()
+{
+    std::cout << "Dog being constructed\n";
+}
+
+Dog::DogCollar::DogCollar()
+{
+    std::cout << "DogCollar being constructed\n";
+}
 
 void Dog::DogCollar::attachLeash(const std::string& leashType, bool isRetractable)
 {
@@ -151,6 +163,7 @@ bool Dog::tryNewCollar(DogCollar newCollar)
 
 struct Laptop
 {
+    Laptop();
     std::string brand = "Apple";
     std::string model = "Macbook";
     std::string operatingSystemVersion = "Snow Leopard";
@@ -159,6 +172,7 @@ struct Laptop
     
     struct Battery
     {
+        Battery();
         std::string type = "Li-ion";
         float capacity = 5000.0f;
         int chargeCycles = 1000;
@@ -176,6 +190,16 @@ struct Laptop
 
     Battery currentBattery;
 };
+
+Laptop::Laptop()
+{
+    std::cout << "Laptop being constructed\n";
+}
+
+Laptop::Battery::Battery()
+{
+    std::cout << "Battery being constructed\n";
+}
 
 bool Laptop::Battery::charge(float chargeToLevel) 
 {
@@ -221,6 +245,7 @@ bool Laptop::invokeCompiler()
 
 struct WeatherSatellite
 {
+    WeatherSatellite();
     int numberOfSolarPanels = 8;
     std::string radiationHardeningType = "Standard";
     double attitude = 360.0;
@@ -230,6 +255,11 @@ struct WeatherSatellite
     int transmitDataToGroundStation();
     float monitorBatteryChargeLevel();
 };
+
+WeatherSatellite::WeatherSatellite()
+{
+    std::cout << "WeatherSatellite being constructed\n";
+}
 
 void WeatherSatellite::switchImagingModality()
 {
@@ -252,6 +282,7 @@ float WeatherSatellite::monitorBatteryChargeLevel()
 
 struct FilmCamera
 {
+    FilmCamera();
     std::string viewfinderType = "Waist Level";
     std::string lensMountType = "FD";
     float maximumShutterSpeed = 0.001f;
@@ -261,6 +292,11 @@ struct FilmCamera
     void advanceFilm();
     void engageLightmeter();
 };
+
+FilmCamera::FilmCamera()
+{
+    std::cout << "FilmCamera being constructed\n";
+}
 
 void FilmCamera::releaseShutter()
 {
@@ -279,6 +315,7 @@ void FilmCamera::engageLightmeter()
 
 struct SecuritySystem
 {
+    SecuritySystem();
     int numberOfCameras = 4;
     float motionSensorSensitivity = 5.0f;
     float alarmLoudness = 110.0f;
@@ -288,6 +325,11 @@ struct SecuritySystem
     int recordVideo();
     void sendAlertToSmartphone();
 };
+
+SecuritySystem::SecuritySystem()
+{
+    std::cout << "SecuritySystem being constructed\n";
+}
 
 bool SecuritySystem::detectIntrusion()
 {
@@ -309,6 +351,7 @@ void SecuritySystem::sendAlertToSmartphone()
 
 struct LightingControl
 {
+    LightingControl();
     int numberOfConnectedLights = 10;
     int energyConsumption = 500;
     std::string colourTemperature = "5000K";
@@ -318,6 +361,11 @@ struct LightingControl
     void adjustLightColour(const std::string& colour);
     bool detectMotion();
 };
+
+LightingControl::LightingControl()
+{
+    std::cout << "LightingControl being constructed\n";
+}
 
 void LightingControl::adjustBrightness(int level)
 {
@@ -337,6 +385,7 @@ bool LightingControl::detectMotion()
 
 struct HVACSystem
 {
+    HVACSystem();
     float thermostatAccuracy = 0.1f;
     std::string filterQuality = "HEPA";
     std::string energyEfficiencyRating = "A++";
@@ -346,6 +395,11 @@ struct HVACSystem
     void filterIndoorAir();
     void optimiseEnergyUse();
 };
+
+HVACSystem::HVACSystem()
+{
+    std::cout << "HVACSystem being constructed\n";
+}
 
 void HVACSystem::increaseRoomTemperature(float degrees)
 {
@@ -364,6 +418,7 @@ void HVACSystem::optimiseEnergyUse()
 
 struct EntertainmentSystem
 {
+    EntertainmentSystem();
     int numberOfSpeakers = 5;
     int screenSize = 55;
     std::string supportedVideoFormat = "4K UHD";
@@ -373,6 +428,11 @@ struct EntertainmentSystem
     float streamAudioContent();
     bool connectToBluetoothDevice();
 };
+
+EntertainmentSystem::EntertainmentSystem()
+{
+    std::cout << "EntertainmentSystem being constructed\n";
+}
 
 void EntertainmentSystem::playVideoContent()
 {
@@ -394,6 +454,7 @@ bool EntertainmentSystem::connectToBluetoothDevice()
 
 struct SmartAppliance
 {
+    SmartAppliance();
     std::string washCycleType = "Cotton";
     float energyConsumptionPerCycle = 0.5f;
     float waterUsagePerCycle = 10.0f;
@@ -403,6 +464,11 @@ struct SmartAppliance
     void optimisePowerUsageBasedOnLoad();
     bool sendAlertToHomeowners();
 };
+
+SmartAppliance::SmartAppliance()
+{
+    std::cout << "SmartAppliance being constructed\n";
+}
 
 void SmartAppliance::washClothes()
 {
@@ -422,6 +488,7 @@ bool SmartAppliance::sendAlertToHomeowners()
 
 struct SmartHomeSystem
 {
+    SmartHomeSystem();
     SecuritySystem securitySystem;
     LightingControl lightingControl;
     HVACSystem hvacSystem;
@@ -431,6 +498,11 @@ struct SmartHomeSystem
     void controlLighting(const std::string& roomId);
     void triggerAlarmSound();
 };
+
+SmartHomeSystem::SmartHomeSystem()
+{
+    std::cout << "SmartHomeSystem being constructed\n";
+}
 
 float SmartHomeSystem::monitorHomeTemperature()
 {
@@ -452,6 +524,87 @@ void SmartHomeSystem::triggerAlarmSound()
 int main()
 {
     Example::main(); //do not delete this line
- 
+
+    Dog jackRussel;
+    Dog::DogCollar pinkCollar;
+    
+    jackRussel.barkAtPostman();
+    jackRussel.fetchBall();
+    jackRussel.tryNewCollar(pinkCollar);
+    jackRussel.currentCollar.attachLeash("gangster", true);
+    jackRussel.currentCollar.adjustFit(15, 10.0f, 20.0f);
+    jackRussel.currentCollar.remove(true);
+
+    Laptop laptop;
+    Laptop::Battery replacementBattery;
+
+    laptop.replaceBattery(replacementBattery);
+    laptop.launchProgram("Logic");
+    laptop.invokeCompiler();
+    laptop.currentBattery.charge(90.0f);
+    laptop.currentBattery.checkCapacityRemaining("FastGauge");
+    laptop.currentBattery.limitChargeCurrent(2.5f, 90.0f);
+
+    WeatherSatellite sputnik;
+
+    sputnik.switchImagingModality();
+    sputnik.transmitDataToGroundStation();
+    sputnik.monitorBatteryChargeLevel();
+
+    FilmCamera canonA1;
+
+    canonA1.releaseShutter();
+    canonA1.advanceFilm();
+    canonA1.engageLightmeter();
+
+    SecuritySystem megaAlarm;
+
+    megaAlarm.detectIntrusion();
+    megaAlarm.recordVideo();
+    megaAlarm.sendAlertToSmartphone();
+
+    LightingControl megaLight;
+
+    megaLight.adjustBrightness(42);
+    megaLight.adjustLightColour("violet");
+    megaLight.detectMotion();
+
+    HVACSystem megaHVAC;
+
+    megaHVAC.increaseRoomTemperature(11.3f);
+    megaHVAC.filterIndoorAir();
+    megaHVAC.optimiseEnergyUse();
+
+    EntertainmentSystem boseWholeHome;
+
+    boseWholeHome.playVideoContent();
+    boseWholeHome.streamAudioContent();
+    boseWholeHome.connectToBluetoothDevice();
+
+    SmartAppliance whirlpool3000;
+
+    whirlpool3000.washClothes();
+    whirlpool3000.optimisePowerUsageBasedOnLoad();
+    whirlpool3000.sendAlertToHomeowners();
+
+    SmartHomeSystem gigaHome;
+
+    gigaHome.monitorHomeTemperature();
+    gigaHome.controlLighting("GAMES_ROOM");
+    gigaHome.triggerAlarmSound();
+
+    std::cout << "jack russel's weight: " << jackRussel.weight << " kg" << "\n";
+    std::cout << "jack russel's collar material: " << jackRussel.currentCollar.material << "\n";
+    std::cout << "laptop brand: " << laptop.brand << "\n";
+    std::cout << "laptop's battery's charge capacity: " << laptop.currentBattery.capacity << " mAh\n";
+    std::cout << "sputnik's orbital velocity is: " << sputnik.orbitalVelocity << " ms^-1\n";
+    std::cout << "Canon A1's viewfinder type: " << canonA1.viewfinderType << " \n";
+    std::cout << "mega alarm loudness: " << megaAlarm.alarmLoudness << " dB\n";
+    std::cout << "mega light has " << megaLight.numberOfConnectedLights << " connected lights\n";
+    std::cout << "mega HVAC has a " << megaHVAC.filterQuality << " filter\n";
+    std::cout << "Bose entertainment system supports " << boseWholeHome.supportedVideoFormat << "\n";
+    std::cout << "Whirlpool 300 uses " << whirlpool3000.waterUsagePerCycle << " litres of water per cycle\n";
+    std::cout << "giga home system smart appliance compatibility type is " << gigaHome.smartAppliance.smartHomeCompatibility << '\n';
+
     std::cout << "good to go!" << std::endl;
 }
