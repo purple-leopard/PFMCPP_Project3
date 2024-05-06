@@ -137,7 +137,7 @@ struct Laptop
 {
     Laptop();
     std::string brand = "Apple";
-    std::string model = "Macbook";
+    std::string model;
     std::string operatingSystemVersion = "Snow Leopard";
     int memoryCapacity = 16;
     int numberOfProcessorCores = 4;
@@ -146,7 +146,7 @@ struct Laptop
     {
         Battery();
         std::string type = "Li-ion";
-        float capacity = 5000.0f;
+        float capacity;
         int chargeCycles = 1000;
         float maxChargeCurrent = 2.0f;
         float voltage = 18.0f;
@@ -163,12 +163,12 @@ struct Laptop
     Battery currentBattery;
 };
 
-Laptop::Laptop()
+Laptop::Laptop() : model("Macbook")
 {
     std::cout << "Laptop being constructed\n";
 }
 
-Laptop::Battery::Battery()
+Laptop::Battery::Battery() : capacity(5000.0f)
 {
     std::cout << "Battery being constructed\n";
 }
@@ -183,7 +183,7 @@ bool Laptop::Battery::charge(float chargeToLevel)
 float Laptop::Battery::checkCapacityRemaining(const std::string& fuelGuageAlgorithm) 
 {
     float capacityRemaining = 1000.0f;
-    std::cout << "checking battery capacity remaining using " << fuelGuageAlgorithm << "\n";
+    std::cout << "checking battery capacity remaining out of max capacity " << capacity << " mAh, using " << fuelGuageAlgorithm << "\n";
     return capacityRemaining;
 }
 
@@ -200,7 +200,7 @@ void Laptop::Battery::limitChargeCurrent(float inputCurrent, float temperatureLi
 void Laptop::replaceBattery(Battery newBattery) 
 {
     currentBattery = newBattery;
-    std::cout << "battery replaced with type: " << newBattery.type << "\n";
+    std::cout << model <<" battery replaced with type: " << newBattery.type << "\n";
 }
 
 bool Laptop::launchProgram(const std::string& programName) 
