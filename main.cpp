@@ -79,7 +79,7 @@ struct Dog
     DogCollar currentCollar;
 };
 
-Dog::Dog() : weight(10.0f), height(0.5f), ageInYears(3), furColour("brown"), breed("Beagle")
+Dog::Dog() : weight(10.0f), height(0.5f), ageInYears(3), furColour("brown"), breed("Jack Russel")
 {
     std::cout << "Dog being constructed\n";
 }
