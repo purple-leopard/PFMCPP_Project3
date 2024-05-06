@@ -289,16 +289,16 @@ struct SecuritySystem
 {
     SecuritySystem();
     int numberOfCameras = 4;
-    float motionSensorSensitivity = 5.0f;
+    float motionSensorSensitivity;
     float alarmLoudness = 110.0f;
     int backupBatteryCapacity = 10000;
-    std::string connectivityType = "WiFi";
+    std::string connectivityType;
     bool detectIntrusion();
     int recordVideo();
     void sendAlertToSmartphone();
 };
 
-SecuritySystem::SecuritySystem()
+SecuritySystem::SecuritySystem() : motionSensorSensitivity(5.6f), connectivityType("WiFi")
 {
     std::cout << "SecuritySystem being constructed\n";
 }
