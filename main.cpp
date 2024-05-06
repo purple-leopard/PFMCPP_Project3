@@ -52,20 +52,20 @@ paste your code below
 struct Dog
 {
     Dog();
-    float weight = 10.0f;
-    float height = 0.5f;
-    int ageInYears = 3;
-    std::string furColour = "brown";
-    std::string breed = "Beagle";
+    float weight;
+    float height;
+    int ageInYears;
+    std::string furColour;
+    std::string breed;
 
     struct DogCollar
     {
         DogCollar();
-        std::string material = "leather";
-        std::string color = "red";
-        std::string dogName = "BUSTER";
-        float length = 15.0f;
-        float width = 0.5f;
+        std::string material;
+        std::string color;
+        std::string dogName;
+        float length;
+        float width;
 
         void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
         void remove(bool clipRelease = true);
@@ -79,19 +79,19 @@ struct Dog
     DogCollar currentCollar;
 };
 
-Dog::Dog()
+Dog::Dog() : weight(10.0f), height(0.5f), ageInYears(3), furColour("brown"), breed("Beagle")
 {
     std::cout << "Dog being constructed\n";
 }
 
-Dog::DogCollar::DogCollar()
+Dog::DogCollar::DogCollar() : material("leather"), color("red"), dogName("BUSTER"), length(15.0f), width(0.5f)
 {
     std::cout << "DogCollar being constructed\n";
 }
 
 void Dog::DogCollar::attachLeash(const std::string& leashType, bool isRetractable)
 {
-    std::cout << "leash type: " << leashType << ", retractable: " << isRetractable << "\n";
+    std::cout << "leash material: " << material << ", leash type: " << leashType << ", leash retractable: " << isRetractable << "\n";
 }
 
 void Dog::DogCollar::remove(bool clipRelease)
@@ -113,7 +113,7 @@ bool Dog::DogCollar::adjustFit(float newSize, float minSize, float maxSize)
 
 void Dog::barkAtPostman() 
 {
-    std::cout << "bark\n";
+    std::cout << furColour << " colour dog is barking at the postman\n";
 }
 
 void Dog::fetchBall()
