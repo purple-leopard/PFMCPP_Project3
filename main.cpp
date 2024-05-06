@@ -359,8 +359,8 @@ struct HVACSystem
 {
     HVACSystem();
     float thermostatAccuracy = 0.1f;
-    std::string filterQuality = "HEPA";
-    std::string energyEfficiencyRating = "A++";
+    std::string filterQuality;
+    std::string energyEfficiencyRating;
     int coolingCapacity = 5000;
     int heatingCapacity = 5000;
     void increaseRoomTemperature(float degrees);
@@ -368,7 +368,7 @@ struct HVACSystem
     void optimiseEnergyUse();
 };
 
-HVACSystem::HVACSystem()
+HVACSystem::HVACSystem() : filterQuality("HEPA"), energyEfficiencyRating("A++")
 {
     std::cout << "HVACSystem being constructed\n";
 }
