@@ -220,7 +220,7 @@ struct WeatherSatellite
     WeatherSatellite();
     int numberOfSolarPanels = 8;
     std::string radiationHardeningType = "Standard";
-    double attitude = 360.0;
+    double attitude;
     double orbitalVelocity = 7.8;
     float antennaCenterFrequency = 2.4f;
     void switchImagingModality();
@@ -228,14 +228,14 @@ struct WeatherSatellite
     float monitorBatteryChargeLevel();
 };
 
-WeatherSatellite::WeatherSatellite()
+WeatherSatellite::WeatherSatellite() : attitude(45.7)
 {
     std::cout << "WeatherSatellite being constructed\n";
 }
 
 void WeatherSatellite::switchImagingModality()
 {
-    std::cout << "switching imaging modality from visible to infrared\n";
+    std::cout << "satellite attitude is " <<  attitude << " degrees, switching imaging modality from visible to infrared\n";
 }
 
 int WeatherSatellite::transmitDataToGroundStation()
