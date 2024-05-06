@@ -40,40 +40,6 @@ int main()
 //call Example::main()
 
 
-#include <iostream>
-namespace Example 
-{
-struct UDT  // my user defined type named 'UDT'
-{
-    int thing = 0; //a member variable
-    UDT();              //1) the constructor
-    void printThing();  //the member function
-};
-
-//the function definitions are outside of the class
-UDT::UDT()
-{
-    std::cout << "UDT being constructed!" << std::endl; //1) 
-}
-
-void UDT::printThing()
-{
-    std::cout << "UDT::printThing() " << thing << std::endl;  //2) printing out something interesting
-}
-
-int main()
-{
-    UDT foo;              //3) instantiating a UDT named 'foo' in main()
-    foo.printThing();     //4) calling a member function of the UDT instance.
-    
-    //5) a std::cout statement accessing foo's member variable.
-    //It also demonstrates a 'ternary expression', which is syntactic shorthand for an 'if/else' expression
-    std::cout << "Is foo's member var 'thing' equal to 0? " << (foo.thing == 0 ? "Yes" : "No") << "\n";
-    
-    return 0;
-}
-} //end namespace Example
-
 //insert Example::main() into main() of user's repo.
 
 
@@ -86,20 +52,20 @@ paste your code below
 struct Dog
 {
     Dog();
-    float weight = 10.0f;
-    float height = 0.5f;
-    int ageInYears = 3;
-    std::string furColour = "brown";
-    std::string breed = "Beagle";
+    float weight;
+    float height;
+    int ageInYears;
+    std::string furColour;
+    std::string breed;
 
     struct DogCollar
     {
         DogCollar();
-        std::string material = "leather";
-        std::string color = "red";
-        std::string dogName = "BUSTER";
-        float length = 15.0f;
-        float width = 0.5f;
+        std::string material;
+        std::string color;
+        std::string dogName;
+        float length;
+        float width;
 
         void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
         void remove(bool clipRelease = true);
@@ -113,19 +79,19 @@ struct Dog
     DogCollar currentCollar;
 };
 
-Dog::Dog()
+Dog::Dog() : weight(10.0f), height(0.5f), ageInYears(3), furColour("brown"), breed("Jack Russel")
 {
     std::cout << "Dog being constructed\n";
 }
 
-Dog::DogCollar::DogCollar()
+Dog::DogCollar::DogCollar() : material("leather"), color("red"), dogName("BUSTER"), length(15.0f), width(0.5f)
 {
     std::cout << "DogCollar being constructed\n";
 }
 
 void Dog::DogCollar::attachLeash(const std::string& leashType, bool isRetractable)
 {
-    std::cout << "leash type: " << leashType << ", retractable: " << isRetractable << "\n";
+    std::cout << "leash material: " << material << ", leash type: " << leashType << ", leash retractable: " << isRetractable << "\n";
 }
 
 void Dog::DogCollar::remove(bool clipRelease)
@@ -147,7 +113,7 @@ bool Dog::DogCollar::adjustFit(float newSize, float minSize, float maxSize)
 
 void Dog::barkAtPostman() 
 {
-    std::cout << "bark\n";
+    std::cout << furColour << " colour dog is barking at the postman\n";
 }
 
 void Dog::fetchBall()
@@ -171,7 +137,7 @@ struct Laptop
 {
     Laptop();
     std::string brand = "Apple";
-    std::string model = "Macbook";
+    std::string model;
     std::string operatingSystemVersion = "Snow Leopard";
     int memoryCapacity = 16;
     int numberOfProcessorCores = 4;
@@ -180,7 +146,7 @@ struct Laptop
     {
         Battery();
         std::string type = "Li-ion";
-        float capacity = 5000.0f;
+        float capacity;
         int chargeCycles = 1000;
         float maxChargeCurrent = 2.0f;
         float voltage = 18.0f;
@@ -197,12 +163,12 @@ struct Laptop
     Battery currentBattery;
 };
 
-Laptop::Laptop()
+Laptop::Laptop() : model("Macbook")
 {
     std::cout << "Laptop being constructed\n";
 }
 
-Laptop::Battery::Battery()
+Laptop::Battery::Battery() : capacity(5000.0f)
 {
     std::cout << "Battery being constructed\n";
 }
@@ -217,7 +183,7 @@ bool Laptop::Battery::charge(float chargeToLevel)
 float Laptop::Battery::checkCapacityRemaining(const std::string& fuelGuageAlgorithm) 
 {
     float capacityRemaining = 1000.0f;
-    std::cout << "checking battery capacity remaining using " << fuelGuageAlgorithm << "\n";
+    std::cout << "checking battery capacity remaining out of max capacity " << capacity << " mAh, using " << fuelGuageAlgorithm << "\n";
     return capacityRemaining;
 }
 
@@ -234,7 +200,7 @@ void Laptop::Battery::limitChargeCurrent(float inputCurrent, float temperatureLi
 void Laptop::replaceBattery(Battery newBattery) 
 {
     currentBattery = newBattery;
-    std::cout << "battery replaced with type: " << newBattery.type << "\n";
+    std::cout << model <<" battery replaced with type: " << newBattery.type << "\n";
 }
 
 bool Laptop::launchProgram(const std::string& programName) 
@@ -254,7 +220,7 @@ struct WeatherSatellite
     WeatherSatellite();
     int numberOfSolarPanels = 8;
     std::string radiationHardeningType = "Standard";
-    double attitude = 360.0;
+    double attitude;
     double orbitalVelocity = 7.8;
     float antennaCenterFrequency = 2.4f;
     void switchImagingModality();
@@ -262,14 +228,14 @@ struct WeatherSatellite
     float monitorBatteryChargeLevel();
 };
 
-WeatherSatellite::WeatherSatellite()
+WeatherSatellite::WeatherSatellite() : attitude(45.7)
 {
     std::cout << "WeatherSatellite being constructed\n";
 }
 
 void WeatherSatellite::switchImagingModality()
 {
-    std::cout << "switching imaging modality from visible to infrared\n";
+    std::cout << "satellite attitude is " <<  attitude << " degrees, switching imaging modality from visible to infrared\n";
 }
 
 int WeatherSatellite::transmitDataToGroundStation()
@@ -291,7 +257,7 @@ struct FilmCamera
     FilmCamera();
     std::string viewfinderType = "Waist Level";
     std::string lensMountType = "FD";
-    float maximumShutterSpeed = 0.001f;
+    float maximumShutterSpeed;
     float weight = 1.2f;
     std::string brand = "Canon";
     void releaseShutter();
@@ -299,14 +265,14 @@ struct FilmCamera
     void engageLightmeter();
 };
 
-FilmCamera::FilmCamera()
+FilmCamera::FilmCamera() : maximumShutterSpeed(0.001f)
 {
     std::cout << "FilmCamera being constructed\n";
 }
 
 void FilmCamera::releaseShutter()
 {
-    std::cout << "shutter released\n";
+    std::cout << "shutter released at shutter speed: " << maximumShutterSpeed << " s\n";
 }
 
 void FilmCamera::advanceFilm()
@@ -323,16 +289,16 @@ struct SecuritySystem
 {
     SecuritySystem();
     int numberOfCameras = 4;
-    float motionSensorSensitivity = 5.0f;
+    float motionSensorSensitivity;
     float alarmLoudness = 110.0f;
     int backupBatteryCapacity = 10000;
-    std::string connectivityType = "WiFi";
+    std::string connectivityType;
     bool detectIntrusion();
     int recordVideo();
     void sendAlertToSmartphone();
 };
 
-SecuritySystem::SecuritySystem()
+SecuritySystem::SecuritySystem() : motionSensorSensitivity(5.6f), connectivityType("WiFi")
 {
     std::cout << "SecuritySystem being constructed\n";
 }
@@ -362,13 +328,13 @@ struct LightingControl
     int energyConsumption = 500;
     std::string colourTemperature = "5000K";
     int brightnessLevels = 10;
-    int motionDetectionSensitivity = 3;
+    int motionDetectionSensitivity;
     void adjustBrightness(int level);
     void adjustLightColour(const std::string& colour);
     bool detectMotion();
 };
 
-LightingControl::LightingControl()
+LightingControl::LightingControl() : motionDetectionSensitivity(8)
 {
     std::cout << "LightingControl being constructed\n";
 }
@@ -393,8 +359,8 @@ struct HVACSystem
 {
     HVACSystem();
     float thermostatAccuracy = 0.1f;
-    std::string filterQuality = "HEPA";
-    std::string energyEfficiencyRating = "A++";
+    std::string filterQuality;
+    std::string energyEfficiencyRating;
     int coolingCapacity = 5000;
     int heatingCapacity = 5000;
     void increaseRoomTemperature(float degrees);
@@ -402,7 +368,7 @@ struct HVACSystem
     void optimiseEnergyUse();
 };
 
-HVACSystem::HVACSystem()
+HVACSystem::HVACSystem() : filterQuality("HEPA"), energyEfficiencyRating("A++")
 {
     std::cout << "HVACSystem being constructed\n";
 }
@@ -427,7 +393,7 @@ struct EntertainmentSystem
     EntertainmentSystem();
     int numberOfSpeakers = 5;
     int screenSize = 55;
-    std::string supportedVideoFormat = "4K UHD";
+    std::string supportedVideoFormat;
     int maximumAudioOutputLevel = 120;
     std::string brand = "Sony";
     void playVideoContent();
@@ -435,14 +401,14 @@ struct EntertainmentSystem
     bool connectToBluetoothDevice();
 };
 
-EntertainmentSystem::EntertainmentSystem()
+EntertainmentSystem::EntertainmentSystem() : supportedVideoFormat("4K UHD")
 {
     std::cout << "EntertainmentSystem being constructed\n";
 }
 
 void EntertainmentSystem::playVideoContent()
 {
-    std::cout << "playing video\n";
+    std::cout << "playing " << supportedVideoFormat << " video\n";
 }
 
 float EntertainmentSystem::streamAudioContent()
@@ -461,7 +427,7 @@ bool EntertainmentSystem::connectToBluetoothDevice()
 struct SmartAppliance
 {
     SmartAppliance();
-    std::string washCycleType = "Cotton";
+    std::string washCycleType;
     float energyConsumptionPerCycle = 0.5f;
     float waterUsagePerCycle = 10.0f;
     std::string model = "WashMaster 3000";
@@ -471,7 +437,7 @@ struct SmartAppliance
     bool sendAlertToHomeowners();
 };
 
-SmartAppliance::SmartAppliance()
+SmartAppliance::SmartAppliance() : washCycleType("cotton")
 {
     std::cout << "SmartAppliance being constructed\n";
 }
