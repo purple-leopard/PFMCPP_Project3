@@ -257,7 +257,7 @@ struct FilmCamera
     FilmCamera();
     std::string viewfinderType = "Waist Level";
     std::string lensMountType = "FD";
-    float maximumShutterSpeed = 0.001f;
+    float maximumShutterSpeed;
     float weight = 1.2f;
     std::string brand = "Canon";
     void releaseShutter();
@@ -265,14 +265,14 @@ struct FilmCamera
     void engageLightmeter();
 };
 
-FilmCamera::FilmCamera()
+FilmCamera::FilmCamera() : maximumShutterSpeed(0.001f)
 {
     std::cout << "FilmCamera being constructed\n";
 }
 
 void FilmCamera::releaseShutter()
 {
-    std::cout << "shutter released\n";
+    std::cout << "shutter released at shutter speed: " << maximumShutterSpeed << " s\n";
 }
 
 void FilmCamera::advanceFilm()
