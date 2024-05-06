@@ -427,7 +427,7 @@ bool EntertainmentSystem::connectToBluetoothDevice()
 struct SmartAppliance
 {
     SmartAppliance();
-    std::string washCycleType = "Cotton";
+    std::string washCycleType;
     float energyConsumptionPerCycle = 0.5f;
     float waterUsagePerCycle = 10.0f;
     std::string model = "WashMaster 3000";
@@ -437,7 +437,7 @@ struct SmartAppliance
     bool sendAlertToHomeowners();
 };
 
-SmartAppliance::SmartAppliance()
+SmartAppliance::SmartAppliance() : washCycleType("cotton")
 {
     std::cout << "SmartAppliance being constructed\n";
 }
