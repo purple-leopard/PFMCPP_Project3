@@ -328,13 +328,13 @@ struct LightingControl
     int energyConsumption = 500;
     std::string colourTemperature = "5000K";
     int brightnessLevels = 10;
-    int motionDetectionSensitivity = 3;
+    int motionDetectionSensitivity;
     void adjustBrightness(int level);
     void adjustLightColour(const std::string& colour);
     bool detectMotion();
 };
 
-LightingControl::LightingControl()
+LightingControl::LightingControl() : motionDetectionSensitivity(8)
 {
     std::cout << "LightingControl being constructed\n";
 }
