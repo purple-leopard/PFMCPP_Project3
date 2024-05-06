@@ -393,7 +393,7 @@ struct EntertainmentSystem
     EntertainmentSystem();
     int numberOfSpeakers = 5;
     int screenSize = 55;
-    std::string supportedVideoFormat = "4K UHD";
+    std::string supportedVideoFormat;
     int maximumAudioOutputLevel = 120;
     std::string brand = "Sony";
     void playVideoContent();
@@ -401,14 +401,14 @@ struct EntertainmentSystem
     bool connectToBluetoothDevice();
 };
 
-EntertainmentSystem::EntertainmentSystem()
+EntertainmentSystem::EntertainmentSystem() : supportedVideoFormat("4K UHD")
 {
     std::cout << "EntertainmentSystem being constructed\n";
 }
 
 void EntertainmentSystem::playVideoContent()
 {
-    std::cout << "playing video\n";
+    std::cout << "playing " << supportedVideoFormat << " video\n";
 }
 
 float EntertainmentSystem::streamAudioContent()
