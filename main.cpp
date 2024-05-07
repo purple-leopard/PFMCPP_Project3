@@ -212,11 +212,13 @@ struct Laptop
         bool charge(float chargeToLevel = 100.0f);
         float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge");
         void limitChargeCurrent(float inputCurrent, float temperatureLimit = 85.8f);
+        void drain();
     };
 
     void replaceBattery(Battery newBattery);
     bool launchProgram(const std::string& programName);
     bool invokeCompiler();
+    void cycleCharge(Battery battery, int numCycles);
 
     Battery currentBattery;
 };
@@ -226,7 +228,7 @@ Laptop::Laptop() : model("Macbook")
     std::cout << "Laptop being constructed\n";
 }
 
-Laptop::Battery::Battery() : capacity(5000.0f)
+Laptop::Battery::Battery() : capacity(1000.0f)
 {
     std::cout << "Battery being constructed\n";
 }
@@ -255,6 +257,16 @@ void Laptop::Battery::limitChargeCurrent(float inputCurrent, float temperatureLi
     }
 }
 
+void Laptop::Battery::drain()
+{
+    while (capacity > 200.0f)
+    {
+        capacity -= 200.0f;
+        std::cout << "battery capacity now at " << capacity << " mAh\n";
+    }
+    std::cout << "battery low, please recharge\n";
+}
+
 void Laptop::replaceBattery(Battery newBattery) 
 {
     currentBattery = newBattery;
@@ -271,6 +283,15 @@ bool Laptop::invokeCompiler()
 {
     std::cout << "compiler invoked" << "\n";
     return true;
+}
+
+void Laptop::cycleCharge(Battery battery, int numCycles)
+{
+    for(int i = 0; i < numCycles; ++i)
+    {
+        ++battery.chargeCycles;
+        std::cout << "cycling battery charge, cycles are now at: " << battery.chargeCycles << "\n";
+    }
 }
 
 struct WeatherSatellite
@@ -573,7 +594,9 @@ int main()
     laptop.replaceBattery(replacementBattery);
     laptop.launchProgram("Logic");
     laptop.invokeCompiler();
+    laptop.cycleCharge(laptop.currentBattery, 3);
     laptop.currentBattery.charge(90.0f);
+    laptop.currentBattery.drain();
     laptop.currentBattery.checkCapacityRemaining("FastGauge");
     laptop.currentBattery.limitChargeCurrent(2.5f, 90.0f);
 
