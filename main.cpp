@@ -305,6 +305,7 @@ struct WeatherSatellite
     void switchImagingModality();
     int transmitDataToGroundStation();
     float monitorBatteryChargeLevel();
+    void normalizeAttitude(double targetAttitude);
 };
 
 WeatherSatellite::WeatherSatellite() : attitude(45.7)
@@ -329,6 +330,21 @@ float WeatherSatellite::monitorBatteryChargeLevel()
     float chargeLevel = 75.0f;
     std::cout << "current battery charge level is " << chargeLevel << "%\n";
     return chargeLevel;
+}
+
+void WeatherSatellite::normalizeAttitude(double targetAttitude)
+{
+    std::cout << "starting attitude normalization from " << attitude << " degrees to " << targetAttitude << " degrees\n";
+    while(attitude < targetAttitude)
+    {
+        attitude += 0.5;
+        std::cout << "adjusting, current attitude: " << attitude << " degrees\n";
+        if(attitude >= targetAttitude)
+        {
+            std::cout << "target attitude achieved\n";
+            break; 
+        }
+    }
 }
 
 struct FilmCamera
@@ -605,6 +621,7 @@ int main()
     sputnik.switchImagingModality();
     sputnik.transmitDataToGroundStation();
     sputnik.monitorBatteryChargeLevel();
+    sputnik.normalizeAttitude(48.0);
 
     FilmCamera canonA1;
 
