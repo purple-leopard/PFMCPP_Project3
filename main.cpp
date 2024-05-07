@@ -97,16 +97,18 @@ struct Dog
         void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
         void remove(bool clipRelease = true);
         bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);
+        void jingleBell(int numJingles);
     };
 
     void barkAtPostman();
     void fetchBall();
     bool tryNewCollar(DogCollar newCollar);
+    void simulateAgeing(int yearsToAgeBy);
 
     DogCollar currentCollar;
 };
 
-Dog::Dog() : weight(10.0f), height(0.5f), ageInYears(3), furColour("brown"), breed("Jack Russel")
+Dog::Dog() : weight(1.0f), height(0.5f), ageInYears(1), furColour("brown"), breed("Jack Russel")
 {
     std::cout << "Dog being constructed\n";
 }
@@ -138,6 +140,15 @@ bool Dog::DogCollar::adjustFit(float newSize, float minSize, float maxSize)
     return false;
 }
 
+void Dog::DogCollar::jingleBell(int numJingles)
+{
+    std::cout << "collar bell goes:\n";
+    for(int count = 0; count < numJingles; ++count)
+    {
+        std::cout << "jingle\n";
+    }
+}
+
 void Dog::barkAtPostman() 
 {
     std::cout << furColour << " colour dog is barking at the postman\n";
@@ -158,6 +169,26 @@ bool Dog::tryNewCollar(DogCollar newCollar)
     }
     std::cout << "collar doesn't fit, keep original collar\n";
     return false;
+}
+
+void Dog::simulateAgeing(int yearsToAgeBy)
+{
+    int year = 0;
+    while(year < yearsToAgeBy)
+    {
+        ++year;
+        ++ageInYears;
+        weight += 1.5f;
+
+        std::cout << "dog is now " << ageInYears << " years old and weighs " << weight << " kg\n";
+
+        if(ageInYears == 9)
+        {
+            std::cout << "dog is 9 years older now, ending simulation early\n";
+            break;
+        }
+        
+    }
 }
 
 struct Laptop
@@ -530,8 +561,10 @@ int main()
     jackRussel.barkAtPostman();
     jackRussel.fetchBall();
     jackRussel.tryNewCollar(pinkCollar);
+    jackRussel.simulateAgeing(8);
     jackRussel.currentCollar.attachLeash("gangster", true);
     jackRussel.currentCollar.adjustFit(15, 10.0f, 20.0f);
+    jackRussel.currentCollar.jingleBell(4);
     jackRussel.currentCollar.remove(true);
 
     Laptop laptop;
