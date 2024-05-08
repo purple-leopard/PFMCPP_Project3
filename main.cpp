@@ -358,6 +358,7 @@ struct FilmCamera
     void releaseShutter();
     void advanceFilm();
     void engageLightmeter();
+    void takeMultiplePhotos(int numPhotos);
 };
 
 FilmCamera::FilmCamera() : maximumShutterSpeed(0.001f)
@@ -378,6 +379,18 @@ void FilmCamera::advanceFilm()
 void FilmCamera::engageLightmeter()
 {
     std::cout << "lightmeter engaged\n";
+}
+
+void FilmCamera::takeMultiplePhotos(int numPhotos)
+{
+    std::cout << "taking " << numPhotos << " photos with " << brand << " camera\n";
+    for(int i = 0; i < numPhotos; ++i)
+    {
+        std::cout << "photo " << (i + 1) << "\n";
+        engageLightmeter();
+        releaseShutter();
+        advanceFilm();
+    }
 }
 
 struct SecuritySystem
@@ -628,6 +641,7 @@ int main()
     canonA1.releaseShutter();
     canonA1.advanceFilm();
     canonA1.engageLightmeter();
+    canonA1.takeMultiplePhotos(4);
 
     SecuritySystem megaAlarm;
 
