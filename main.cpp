@@ -459,6 +459,7 @@ struct LightingControl
     void adjustBrightness(int level);
     void adjustLightColour(const std::string& colour);
     bool detectMotion();
+    void dimLightsGradually(int targetBrightnessLevel);
 };
 
 LightingControl::LightingControl() : motionDetectionSensitivity(8)
@@ -480,6 +481,16 @@ bool LightingControl::detectMotion()
 {
     std::cout << "motion detected with sensitivity: " << motionDetectionSensitivity << "\n";
     return true;
+}
+
+void LightingControl::dimLightsGradually(int targetBrightnessLevel)
+{
+    std::cout << "starting gradual dimming to target brightness level " << targetBrightnessLevel << "\n";
+    for(int currentLevel = brightnessLevels - 1; currentLevel >= targetBrightnessLevel; --currentLevel)
+    {
+        adjustBrightness(currentLevel);
+    }
+    std::cout << "dimming complete\n";
 }
 
 struct HVACSystem
@@ -674,6 +685,7 @@ int main()
     megaLight.adjustBrightness(42);
     megaLight.adjustLightColour("violet");
     megaLight.detectMotion();
+    megaLight.dimLightsGradually(3);
 
     HVACSystem megaHVAC;
 
