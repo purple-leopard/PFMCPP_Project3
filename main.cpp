@@ -557,6 +557,7 @@ struct EntertainmentSystem
     void playVideoContent();
     float streamAudioContent();
     bool connectToBluetoothDevice();
+    void checkAllSpeakers();
 };
 
 EntertainmentSystem::EntertainmentSystem() : supportedVideoFormat("4K UHD")
@@ -580,6 +581,16 @@ bool EntertainmentSystem::connectToBluetoothDevice()
 {
     std::cout << "bluetooth pairing complete\n";
     return true;
+}
+
+void EntertainmentSystem::checkAllSpeakers()
+{
+    std::cout << "starting check for all " << numberOfSpeakers << " speakers\n";
+    for(int i = 1; i <= numberOfSpeakers; ++i)
+    {
+        std::cout << "checking speaker " << i << " functionality at maximum audio level: " << maximumAudioOutputLevel << " dB\n";
+    }
+    std::cout << "all speakers checked successfully\n";
 }
 
 struct SmartAppliance
@@ -719,6 +730,7 @@ int main()
     boseWholeHome.playVideoContent();
     boseWholeHome.streamAudioContent();
     boseWholeHome.connectToBluetoothDevice();
+    boseWholeHome.checkAllSpeakers();
 
     SmartAppliance whirlpool3000;
 
