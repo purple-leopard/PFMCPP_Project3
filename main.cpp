@@ -604,6 +604,7 @@ struct SmartAppliance
     void washClothes();
     void optimisePowerUsageBasedOnLoad();
     bool sendAlertToHomeowners();
+    void rotateDrum(int rotationsPerCycle);
 };
 
 SmartAppliance::SmartAppliance() : washCycleType("cotton")
@@ -625,6 +626,19 @@ bool SmartAppliance::sendAlertToHomeowners()
 {
     std::cout << "alert sent successfuly\n";
     return true;
+}
+
+void SmartAppliance::rotateDrum(int rotationsPerCycle)
+{
+    std::cout << "initate washer drum rotation\n";
+    for(int i = 1; i <= rotationsPerCycle; ++i)
+    {
+        if(i % 100 == 0)
+        {
+            std::cout << "100 washer drum rotations completed\n";    
+        }
+    }
+    std::cout << "spin complete\n";
 }
 
 struct SmartHomeSystem
@@ -737,6 +751,7 @@ int main()
     whirlpool3000.washClothes();
     whirlpool3000.optimisePowerUsageBasedOnLoad();
     whirlpool3000.sendAlertToHomeowners();
+    whirlpool3000.rotateDrum(1000);
 
     SmartHomeSystem gigaHome;
 
