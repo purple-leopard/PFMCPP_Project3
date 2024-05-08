@@ -652,6 +652,7 @@ struct SmartHomeSystem
     float monitorHomeTemperature();
     void controlLighting(const std::string& roomId);
     void triggerAlarmSound();
+    void turnOffSpeakers();
 };
 
 SmartHomeSystem::SmartHomeSystem()
@@ -674,6 +675,16 @@ void SmartHomeSystem::controlLighting(const std::string &roomId)
 void SmartHomeSystem::triggerAlarmSound()
 {
     std::cout << "triggering alarm sound\n";
+}
+
+void SmartHomeSystem::turnOffSpeakers()
+{
+    std::cout << "turning off all smart home speakers\n";
+    for(int i = 1; i <= entertainmentSystem.numberOfSpeakers; ++i)
+    {
+        std::cout << "turning off speaker # " << i << "\n";
+    }
+    std::cout << "party's over\n";
 }
 
 int main()
@@ -758,6 +769,7 @@ int main()
     gigaHome.monitorHomeTemperature();
     gigaHome.controlLighting("GAMES_ROOM");
     gigaHome.triggerAlarmSound();
+    gigaHome.turnOffSpeakers();
 
     std::cout << "jack russel's weight: " << jackRussel.weight << " kg" << "\n";
     std::cout << "jack russel's collar material: " << jackRussel.currentCollar.material << "\n";
