@@ -504,6 +504,7 @@ struct HVACSystem
     void increaseRoomTemperature(float degrees);
     void filterIndoorAir();
     void optimiseEnergyUse();
+    void increaseTemperatureGradually(float initialTemperature, float targetTemperature);
 };
 
 HVACSystem::HVACSystem() : filterQuality("HEPA"), energyEfficiencyRating("A++")
@@ -524,6 +525,25 @@ void HVACSystem::filterIndoorAir()
 void HVACSystem::optimiseEnergyUse()
 {
     std::cout << "energy use optimised for efficiency rating: " << energyEfficiencyRating << "\n";
+}
+
+void HVACSystem::increaseTemperatureGradually(float initialTemperature, float targetTemperature)
+{    
+    float currentTemperature = initialTemperature;
+    if(initialTemperature < targetTemperature)
+    {
+        std::cout << "starting gradual temperature adjustment from " << initialTemperature << " to " << targetTemperature << " degrees celsius\n";
+        while(currentTemperature < targetTemperature)
+        {
+            currentTemperature += 0.5f;
+            increaseRoomTemperature(currentTemperature);
+            if(currentTemperature >= targetTemperature)
+            {
+                break;
+            }
+        }
+        std::cout << "temperature adjustment complete, final temperature: " << currentTemperature << " degrees celsius\n";
+    }
 }
 
 struct EntertainmentSystem
@@ -692,6 +712,7 @@ int main()
     megaHVAC.increaseRoomTemperature(11.3f);
     megaHVAC.filterIndoorAir();
     megaHVAC.optimiseEnergyUse();
+    megaHVAC.increaseTemperatureGradually(18.5f, 20.5f);
 
     EntertainmentSystem boseWholeHome;
 
