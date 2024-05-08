@@ -404,6 +404,7 @@ struct SecuritySystem
     bool detectIntrusion();
     int recordVideo();
     void sendAlertToSmartphone();
+    void addCameras(int numCamerasToAdd, int maxNumCameras);
 };
 
 SecuritySystem::SecuritySystem() : motionSensorSensitivity(5.6f), connectivityType("WiFi")
@@ -427,6 +428,24 @@ int SecuritySystem::recordVideo()
 void SecuritySystem::sendAlertToSmartphone()
 {
     std::cout << "alert sent to smartphone over " << connectivityType << "\n";
+}
+
+void SecuritySystem::addCameras(int numCamerasToAdd, int maxNumCameras)
+{
+    std::cout << "attempting to add " << numCamerasToAdd << " cameras to the system\n";
+    for(int i = 0; i < numCamerasToAdd; ++i)
+    {
+        if(numberOfCameras < maxNumCameras)
+        {
+            ++numberOfCameras;
+            std::cout << "added camera, total now: " << numberOfCameras << "\n";
+        }
+        else
+        {
+            std::cout << "can't add more cameras, maximum of " << maxNumCameras << " reached\n";
+            break;
+        }
+    }
 }
 
 struct LightingControl
@@ -648,6 +667,7 @@ int main()
     megaAlarm.detectIntrusion();
     megaAlarm.recordVideo();
     megaAlarm.sendAlertToSmartphone();
+    megaAlarm.addCameras(4, 7);
 
     LightingControl megaLight;
 
