@@ -97,16 +97,18 @@ struct Dog
         void attachLeash(const std::string& leashType = "standard", bool isRetractable = false);
         void remove(bool clipRelease = true);
         bool adjustFit(float newSize, float minSize = 10.0f, float maxSize = 20.0f);
+        void jingleBell(int numJingles);
     };
 
     void barkAtPostman();
     void fetchBall();
     bool tryNewCollar(DogCollar newCollar);
+    void simulateAgeing(int yearsToAgeBy);
 
     DogCollar currentCollar;
 };
 
-Dog::Dog() : weight(10.0f), height(0.5f), ageInYears(3), furColour("brown"), breed("Jack Russel")
+Dog::Dog() : weight(1.0f), height(0.5f), ageInYears(1), furColour("brown"), breed("Jack Russel")
 {
     std::cout << "Dog being constructed\n";
 }
@@ -138,6 +140,15 @@ bool Dog::DogCollar::adjustFit(float newSize, float minSize, float maxSize)
     return false;
 }
 
+void Dog::DogCollar::jingleBell(int numJingles)
+{
+    std::cout << "collar bell goes:\n";
+    for(int count = 0; count < numJingles; ++count)
+    {
+        std::cout << "jingle\n";
+    }
+}
+
 void Dog::barkAtPostman() 
 {
     std::cout << furColour << " colour dog is barking at the postman\n";
@@ -158,6 +169,26 @@ bool Dog::tryNewCollar(DogCollar newCollar)
     }
     std::cout << "collar doesn't fit, keep original collar\n";
     return false;
+}
+
+void Dog::simulateAgeing(int yearsToAgeBy)
+{
+    int year = 0;
+    while(year < yearsToAgeBy)
+    {
+        ++year;
+        ++ageInYears;
+        weight += 1.5f;
+
+        std::cout << "dog is now " << ageInYears << " years old and weighs " << weight << " kg\n";
+
+        if(ageInYears == 9)
+        {
+            std::cout << "dog is 9 years older now, ending simulation early\n";
+            break;
+        }
+        
+    }
 }
 
 struct Laptop
@@ -181,11 +212,13 @@ struct Laptop
         bool charge(float chargeToLevel = 100.0f);
         float checkCapacityRemaining(const std::string& fuelGuageAlgorithm = "ModelGauge");
         void limitChargeCurrent(float inputCurrent, float temperatureLimit = 85.8f);
+        void drain();
     };
 
     void replaceBattery(Battery newBattery);
     bool launchProgram(const std::string& programName);
     bool invokeCompiler();
+    void cycleCharge(Battery battery, int numCycles);
 
     Battery currentBattery;
 };
@@ -195,7 +228,7 @@ Laptop::Laptop() : model("Macbook")
     std::cout << "Laptop being constructed\n";
 }
 
-Laptop::Battery::Battery() : capacity(5000.0f)
+Laptop::Battery::Battery() : capacity(1000.0f)
 {
     std::cout << "Battery being constructed\n";
 }
@@ -224,6 +257,16 @@ void Laptop::Battery::limitChargeCurrent(float inputCurrent, float temperatureLi
     }
 }
 
+void Laptop::Battery::drain()
+{
+    while (capacity > 200.0f)
+    {
+        capacity -= 200.0f;
+        std::cout << "battery capacity now at " << capacity << " mAh\n";
+    }
+    std::cout << "battery low, please recharge\n";
+}
+
 void Laptop::replaceBattery(Battery newBattery) 
 {
     currentBattery = newBattery;
@@ -242,6 +285,15 @@ bool Laptop::invokeCompiler()
     return true;
 }
 
+void Laptop::cycleCharge(Battery battery, int numCycles)
+{
+    for(int i = 0; i < numCycles; ++i)
+    {
+        ++battery.chargeCycles;
+        std::cout << "cycling battery charge, cycles are now at: " << battery.chargeCycles << "\n";
+    }
+}
+
 struct WeatherSatellite
 {
     WeatherSatellite();
@@ -253,6 +305,7 @@ struct WeatherSatellite
     void switchImagingModality();
     int transmitDataToGroundStation();
     float monitorBatteryChargeLevel();
+    void normalizeAttitude(double targetAttitude);
 };
 
 WeatherSatellite::WeatherSatellite() : attitude(45.7)
@@ -279,6 +332,21 @@ float WeatherSatellite::monitorBatteryChargeLevel()
     return chargeLevel;
 }
 
+void WeatherSatellite::normalizeAttitude(double targetAttitude)
+{
+    std::cout << "starting attitude normalization from " << attitude << " degrees to " << targetAttitude << " degrees\n";
+    while(attitude < targetAttitude)
+    {
+        attitude += 0.5;
+        std::cout << "adjusting, current attitude: " << attitude << " degrees\n";
+        if(attitude >= targetAttitude)
+        {
+            std::cout << "target attitude achieved\n";
+            break; 
+        }
+    }
+}
+
 struct FilmCamera
 {
     FilmCamera();
@@ -290,6 +358,7 @@ struct FilmCamera
     void releaseShutter();
     void advanceFilm();
     void engageLightmeter();
+    void takeMultiplePhotos(int numPhotos);
 };
 
 FilmCamera::FilmCamera() : maximumShutterSpeed(0.001f)
@@ -312,6 +381,18 @@ void FilmCamera::engageLightmeter()
     std::cout << "lightmeter engaged\n";
 }
 
+void FilmCamera::takeMultiplePhotos(int numPhotos)
+{
+    std::cout << "taking " << numPhotos << " photos with " << brand << " camera\n";
+    for(int i = 0; i < numPhotos; ++i)
+    {
+        std::cout << "photo " << (i + 1) << "\n";
+        engageLightmeter();
+        releaseShutter();
+        advanceFilm();
+    }
+}
+
 struct SecuritySystem
 {
     SecuritySystem();
@@ -323,6 +404,7 @@ struct SecuritySystem
     bool detectIntrusion();
     int recordVideo();
     void sendAlertToSmartphone();
+    void addCameras(int numCamerasToAdd, int maxNumCameras);
 };
 
 SecuritySystem::SecuritySystem() : motionSensorSensitivity(5.6f), connectivityType("WiFi")
@@ -348,6 +430,24 @@ void SecuritySystem::sendAlertToSmartphone()
     std::cout << "alert sent to smartphone over " << connectivityType << "\n";
 }
 
+void SecuritySystem::addCameras(int numCamerasToAdd, int maxNumCameras)
+{
+    std::cout << "attempting to add " << numCamerasToAdd << " cameras to the system\n";
+    for(int i = 0; i < numCamerasToAdd; ++i)
+    {
+        if(numberOfCameras < maxNumCameras)
+        {
+            ++numberOfCameras;
+            std::cout << "added camera, total now: " << numberOfCameras << "\n";
+        }
+        else
+        {
+            std::cout << "can't add more cameras, maximum of " << maxNumCameras << " reached\n";
+            break;
+        }
+    }
+}
+
 struct LightingControl
 {
     LightingControl();
@@ -359,6 +459,7 @@ struct LightingControl
     void adjustBrightness(int level);
     void adjustLightColour(const std::string& colour);
     bool detectMotion();
+    void dimLightsGradually(int targetBrightnessLevel);
 };
 
 LightingControl::LightingControl() : motionDetectionSensitivity(8)
@@ -382,6 +483,16 @@ bool LightingControl::detectMotion()
     return true;
 }
 
+void LightingControl::dimLightsGradually(int targetBrightnessLevel)
+{
+    std::cout << "starting gradual dimming to target brightness level " << targetBrightnessLevel << "\n";
+    for(int currentLevel = brightnessLevels - 1; currentLevel >= targetBrightnessLevel; --currentLevel)
+    {
+        adjustBrightness(currentLevel);
+    }
+    std::cout << "dimming complete\n";
+}
+
 struct HVACSystem
 {
     HVACSystem();
@@ -393,6 +504,7 @@ struct HVACSystem
     void increaseRoomTemperature(float degrees);
     void filterIndoorAir();
     void optimiseEnergyUse();
+    void increaseTemperatureGradually(float initialTemperature, float targetTemperature);
 };
 
 HVACSystem::HVACSystem() : filterQuality("HEPA"), energyEfficiencyRating("A++")
@@ -415,6 +527,25 @@ void HVACSystem::optimiseEnergyUse()
     std::cout << "energy use optimised for efficiency rating: " << energyEfficiencyRating << "\n";
 }
 
+void HVACSystem::increaseTemperatureGradually(float initialTemperature, float targetTemperature)
+{    
+    float currentTemperature = initialTemperature;
+    if(initialTemperature < targetTemperature)
+    {
+        std::cout << "starting gradual temperature adjustment from " << initialTemperature << " to " << targetTemperature << " degrees celsius\n";
+        while(currentTemperature < targetTemperature)
+        {
+            currentTemperature += 0.5f;
+            increaseRoomTemperature(currentTemperature);
+            if(currentTemperature >= targetTemperature)
+            {
+                break;
+            }
+        }
+        std::cout << "temperature adjustment complete, final temperature: " << currentTemperature << " degrees celsius\n";
+    }
+}
+
 struct EntertainmentSystem
 {
     EntertainmentSystem();
@@ -426,6 +557,7 @@ struct EntertainmentSystem
     void playVideoContent();
     float streamAudioContent();
     bool connectToBluetoothDevice();
+    void checkAllSpeakers();
 };
 
 EntertainmentSystem::EntertainmentSystem() : supportedVideoFormat("4K UHD")
@@ -451,6 +583,16 @@ bool EntertainmentSystem::connectToBluetoothDevice()
     return true;
 }
 
+void EntertainmentSystem::checkAllSpeakers()
+{
+    std::cout << "starting check for all " << numberOfSpeakers << " speakers\n";
+    for(int i = 1; i <= numberOfSpeakers; ++i)
+    {
+        std::cout << "checking speaker " << i << " functionality at maximum audio level: " << maximumAudioOutputLevel << " dB\n";
+    }
+    std::cout << "all speakers checked successfully\n";
+}
+
 struct SmartAppliance
 {
     SmartAppliance();
@@ -462,6 +604,7 @@ struct SmartAppliance
     void washClothes();
     void optimisePowerUsageBasedOnLoad();
     bool sendAlertToHomeowners();
+    void rotateDrum(int rotationsPerCycle);
 };
 
 SmartAppliance::SmartAppliance() : washCycleType("cotton")
@@ -485,6 +628,19 @@ bool SmartAppliance::sendAlertToHomeowners()
     return true;
 }
 
+void SmartAppliance::rotateDrum(int rotationsPerCycle)
+{
+    std::cout << "initate washer drum rotation\n";
+    for(int i = 1; i <= rotationsPerCycle; ++i)
+    {
+        if(i % 100 == 0)
+        {
+            std::cout << "100 washer drum rotations completed\n";    
+        }
+    }
+    std::cout << "spin complete\n";
+}
+
 struct SmartHomeSystem
 {
     SmartHomeSystem();
@@ -496,6 +652,7 @@ struct SmartHomeSystem
     float monitorHomeTemperature();
     void controlLighting(const std::string& roomId);
     void triggerAlarmSound();
+    void turnOffSpeakers();
 };
 
 SmartHomeSystem::SmartHomeSystem()
@@ -520,6 +677,16 @@ void SmartHomeSystem::triggerAlarmSound()
     std::cout << "triggering alarm sound\n";
 }
 
+void SmartHomeSystem::turnOffSpeakers()
+{
+    std::cout << "turning off all smart home speakers\n";
+    for(int i = 1; i <= entertainmentSystem.numberOfSpeakers; ++i)
+    {
+        std::cout << "turning off speaker # " << i << "\n";
+    }
+    std::cout << "party's over\n";
+}
+
 int main()
 {
     Example::main(); //do not delete this line
@@ -530,8 +697,10 @@ int main()
     jackRussel.barkAtPostman();
     jackRussel.fetchBall();
     jackRussel.tryNewCollar(pinkCollar);
+    jackRussel.simulateAgeing(8);
     jackRussel.currentCollar.attachLeash("gangster", true);
     jackRussel.currentCollar.adjustFit(15, 10.0f, 20.0f);
+    jackRussel.currentCollar.jingleBell(4);
     jackRussel.currentCollar.remove(true);
 
     Laptop laptop;
@@ -540,7 +709,9 @@ int main()
     laptop.replaceBattery(replacementBattery);
     laptop.launchProgram("Logic");
     laptop.invokeCompiler();
+    laptop.cycleCharge(laptop.currentBattery, 3);
     laptop.currentBattery.charge(90.0f);
+    laptop.currentBattery.drain();
     laptop.currentBattery.checkCapacityRemaining("FastGauge");
     laptop.currentBattery.limitChargeCurrent(2.5f, 90.0f);
 
@@ -549,48 +720,56 @@ int main()
     sputnik.switchImagingModality();
     sputnik.transmitDataToGroundStation();
     sputnik.monitorBatteryChargeLevel();
+    sputnik.normalizeAttitude(48.0);
 
     FilmCamera canonA1;
 
     canonA1.releaseShutter();
     canonA1.advanceFilm();
     canonA1.engageLightmeter();
+    canonA1.takeMultiplePhotos(4);
 
     SecuritySystem megaAlarm;
 
     megaAlarm.detectIntrusion();
     megaAlarm.recordVideo();
     megaAlarm.sendAlertToSmartphone();
+    megaAlarm.addCameras(4, 7);
 
     LightingControl megaLight;
 
     megaLight.adjustBrightness(42);
     megaLight.adjustLightColour("violet");
     megaLight.detectMotion();
+    megaLight.dimLightsGradually(3);
 
     HVACSystem megaHVAC;
 
     megaHVAC.increaseRoomTemperature(11.3f);
     megaHVAC.filterIndoorAir();
     megaHVAC.optimiseEnergyUse();
+    megaHVAC.increaseTemperatureGradually(18.5f, 20.5f);
 
     EntertainmentSystem boseWholeHome;
 
     boseWholeHome.playVideoContent();
     boseWholeHome.streamAudioContent();
     boseWholeHome.connectToBluetoothDevice();
+    boseWholeHome.checkAllSpeakers();
 
     SmartAppliance whirlpool3000;
 
     whirlpool3000.washClothes();
     whirlpool3000.optimisePowerUsageBasedOnLoad();
     whirlpool3000.sendAlertToHomeowners();
+    whirlpool3000.rotateDrum(1000);
 
     SmartHomeSystem gigaHome;
 
     gigaHome.monitorHomeTemperature();
     gigaHome.controlLighting("GAMES_ROOM");
     gigaHome.triggerAlarmSound();
+    gigaHome.turnOffSpeakers();
 
     std::cout << "jack russel's weight: " << jackRussel.weight << " kg" << "\n";
     std::cout << "jack russel's collar material: " << jackRussel.currentCollar.material << "\n";
